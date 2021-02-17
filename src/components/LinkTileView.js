@@ -7,8 +7,27 @@ import React from 'react';
 
 class LinkTileView extends React.Component {
     render() {
+        const theme = createMuiTheme({
+            palette: {
+              primary: {
+                main: '#4495F6'
+              }
+            }
+          });
         return (
-            <div><p>here</p></div>
+            <div className="dashboard" style={{width: '100vw', height: '100vh', backgroundSize: 'cover', margin: '0', padding: '0', backgroundRepeat: 'no-repeat', backgroundColor: '#202124'}}>
+            <SettingsBar />
+            <div style={{position: 'absolute', bottom: '0px'}}>
+              <MuiThemeProvider theme={theme}>
+                <Switch
+                  
+                  color="primary"
+                  name="photoBackground"
+                  inputProps={{ 'aria-label': 'primary checkbox' }}
+                />
+              </MuiThemeProvider>
+            </div>
+          </div>
         )
     }
 }

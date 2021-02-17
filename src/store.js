@@ -4,7 +4,7 @@ import rootReducer from './reducers';
 import { loadState, saveState } from './actions/stateActions';
 
 const initialState = loadState();
-console.log(initialState)
+//console.log(initialState)
 
 const middleware = [thunk];
 

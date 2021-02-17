@@ -83,11 +83,17 @@ class App extends React.Component {
   
   render(){
       return (
-        <Provider store={store}>
-          {this.state.viewType === "dashboard" ? <DashboardView /> : <LinkTileView />}
-        </Provider>
+        <div>
+          {this.props.viewDetails.view === "dashboard" ? <DashboardView /> : <LinkTileView />}
+        </div>
         )
     }
   }
 
-export default App;
+  function mapStateToProps(state, ownProps) {
+    return {
+      viewDetails: state.viewDetails
+    }
+  }
+
+export default connect(mapStateToProps)(App);
