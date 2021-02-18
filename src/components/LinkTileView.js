@@ -5,6 +5,7 @@ import Switch from '@material-ui/core/Switch';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import React from 'react';
 import { connect } from 'react-redux';
+import LinkTile from './LinkTile';
 
 class LinkTileView extends React.Component {
     render() {
@@ -16,12 +17,12 @@ class LinkTileView extends React.Component {
             }
           });
         return (
-            <div className="dashboard" style={{width: '100vw', height: '100vh', backgroundSize: 'cover', margin: '0', padding: '0', backgroundRepeat: 'no-repeat', backgroundColor: '#202124'}}>
+          <div className="dashboard" style={{width: '100vw', height: '100vh', backgroundSize: 'cover', margin: '0', padding: '0', backgroundRepeat: 'no-repeat', backgroundColor: '#30363D'}}>
             <SettingsBar />
-            <div className="centered" style={{textAlign: 'center'}}>
+            <div className="centered" style={{textAlign: 'center', display: 'flex', flexWrap: 'wrap', width: String(250 * 4) + 'px', justifyContent: 'center'}}>
               {this.props.linkTileDetails.tiles.map((tile) => {
                 return (
-                  <p>{tile.name}</p>
+                  <LinkTile tile={tile}/>
                 )
               })}
             </div>
