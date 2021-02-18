@@ -9,6 +9,8 @@ import ViewType from './ViewType';
 import { connect } from 'react-redux';
 import TimeWidget from './widgets/TimeWidget';
 import GreetingWidget from './widgets/GreetingWidget';
+import QuoteWidget from './widgets/QuoteWidget';
+import WeatherWidget from './widgets/WeatherWidget';
 
 class SettingsBar extends React.Component {
     constructor(props) {
@@ -44,6 +46,16 @@ class SettingsBar extends React.Component {
                         else if (widget.type === "Time") {
                             return(
                                 <TimeWidget widget={widget} />
+                            )
+                        }
+                        else if (widget.type === "Quote") {
+                            return(
+                                <QuoteWidget widget={widget} />
+                            )
+                        }
+                        else if (widget.type === "Weather") {
+                            return(
+                                <WeatherWidget widget={widget} />
                             )
                         }
                     })}

@@ -30,14 +30,53 @@ const initialState = {
 export default function(state = initialState, action) {
     switch(action.type) {
         case ADD_WIDGET:
-          const newWidget = {
-            id: uuid(),
-            type: "Greeting",
-            value: "",
-            display: {
-              customizationVisible: "false",
-              font: "50",
-              location: "center"
+          var newWidget = {}
+          if (action.payload === "Greeting") {
+            newWidget = {
+              id: uuid(),
+              type: "Greeting",
+              value: "",
+              display: {
+                customizationVisible: "false",
+                font: "50",
+                location: "center"
+              }
+            }
+          }
+          else if (action.payload === "Time") {
+            newWidget = {
+              id: uuid(),
+              type: "Time",
+              value: "12",
+              display: {
+                customizationVisible: "false",
+                font: "50",
+                location: "center"
+              }
+            }
+          }
+          else if (action.payload === "Weather") {
+            newWidget = {
+              id: uuid(),
+              type: "Weather",
+              value: "",
+              display: {
+                customizationVisible: "false",
+                font: "50",
+                location: "center"
+              }
+            }
+          }
+          else {
+            newWidget = {
+              id: uuid(),
+              type: "Quote",
+              value: "",
+              display: {
+                customizationVisible: "false",
+                font: "50",
+                location: "center"
+              }
             }
           }
           return {

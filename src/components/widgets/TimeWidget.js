@@ -1,5 +1,7 @@
 import '../../App.css';
 import React from 'react';
+import { deleteWidget } from '../../actions/widgetActions';
+import { connect } from 'react-redux';
 
 class TimeWidget extends React.Component {
     render() {
@@ -10,7 +12,7 @@ class TimeWidget extends React.Component {
                     <p style={{float: 'left', color: 'white', fontWeight: 'bolder'}}>{this.props.widget.type}</p>
                     <div style={{float: 'right'}}>
                         <i onClick={this.props.toggleDisplaySettings} id={this.props.widget.id} style={{color: 'white', cursor: 'pointer', margin: '0px 5px 0px 5px'}} class="fas fa-wrench"></i>
-                        <i style={{color: 'white', cursor: 'pointer', margin: '0px 0px 0px 5px'}} class="fas fa-trash-alt" onClick={this.props.handleDelete} id={this.props.widget.id}></i>
+                        <i style={{color: 'white', cursor: 'pointer', margin: '0px 0px 0px 5px'}} class="fas fa-trash-alt" onClick={this.props.deleteWidget} id={this.props.widget.id}></i>
                     </div>
                 </div>
                 <fieldset id={inputId} style={{border: 'none', display: 'flex', color: 'white', justifyContent: 'center'}}>
@@ -27,4 +29,10 @@ class TimeWidget extends React.Component {
     }
 }
 
-export default TimeWidget;
+function mapStateToProps(state, ownProps) {
+    return {
+      widgetDetails: state.widgetDetails
+    }
+}
+
+export default connect(mapStateToProps, { deleteWidget })(TimeWidget);

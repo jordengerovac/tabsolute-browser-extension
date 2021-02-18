@@ -1,38 +1,32 @@
 import '../../App.css';
 import React from 'react';
+import { deleteWidget } from '../../actions/widgetActions';
+import { connect } from 'react-redux';
 
 class WeatherWidget extends React.Component {
     render() {
-        var clouds = String(this.props.widget.value.split(":@:")[3]);
-        var icon = "";
-        if (clouds.includes("rain")) {
-            icon = "fas fa-cloud-rain";
-        }
-        else if (clouds.includes("snow")) {
-            icon = "fas fa-snowflake";
-        }
-        else if (clouds.includes("clouds")) {
-            icon = "fas fa-cloud";
-        }
-        else if (clouds.includes("clear")) {
-            icon = "fas fa-sun";
-        }
-        else {
-            icon = "fas fa-smog";
-        }
         return(
-            <div style={{textAlign: 'right', margin: '7px', fontSize: this.props.widget.display.font + 'px'}}>
-                <p>{this.props.widget.value.split(":@:")[0]}</p>
-                <div>
-                    <i className={icon}  style={{color: 'white', fontSize: '40px'}}></i>
-                    <div style={{display: 'flex', justifyContent: 'flex-end'}}>
-                        <p style={{margin: '6px'}}>{parseInt(this.props.widget.value.split(":@:")[1])}</p>
-                        <p style={{margin: '6px'}}>{parseInt(this.props.widget.value.split(":@:")[2])}</p>
+            <div style={{backgroundColor: '#30363D', padding: '10px', margin: '0px 10px 10px 10px', borderRadius: '7px'}}>
+                <div style={{textAlign: 'left', margin: '0px 10px 10px 0px'}}>
+                    <p style={{float: 'left', color: 'white', fontWeight: 'bolder'}}>{this.props.widget.type}</p>
+                    <div style={{float: 'right'}}>
+                        <i onClick={this.props.toggleDisplaySettings} id={this.props.widget.id} style={{color: 'white', cursor: 'pointer', margin: '0px 5px 0px 5px'}} class="fas fa-wrench"></i>
+                        <i style={{color: 'white', cursor: 'pointer', margin: '0px 0px 0px 5px'}} class="fas fa-trash-alt" onClick={this.props.deleteWidget} id={this.props.widget.id}></i>
                     </div>
                 </div>
+                <input id={this.props.widget.id} type="text" placeholder="City" defaultValue={this.props.widget.value.split(":@:")[0]} onKeyPress={this.props.handleCityChange} style={{marginTop: '10px'}}></input>
+                {/*
+                {this.props.widget.display.customizationVisible === "true" ? <WidgetCustomization handleFontChange={this.props.handleFontChange} widget={this.props.widget} /> : null}
+                */}
             </div>
         )
     }
 }
 
-export default WeatherWidget;
+function mapStateToProps(state, ownProps) {
+    return {
+      widgetDetails: state.widgetDetails
+    }
+}
+
+export default connect(mapStateToProps, { deleteWidget })(WeatherWidget);
