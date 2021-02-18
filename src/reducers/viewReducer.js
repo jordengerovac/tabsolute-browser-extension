@@ -2,7 +2,7 @@ import { CHANGE_VIEW } from '../actions/types';
 
 
 const initialState = {
-    view: "",
+    view: "dashboard",
     loading: true
 }
 

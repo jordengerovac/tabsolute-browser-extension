@@ -6,7 +6,6 @@ import store from '../store';
 class ViewType extends React.Component {
     render() {
         const itemChecked = store.getState().viewDetails.view;
-        console.log(itemChecked)
         return(
             <div style={{margin: '20px 0px 20px 0px'}}>
                 <fieldset name="view" style={{border: "none", display: 'flex', color: 'white', margin: 'auto', justifyContent: 'center'}}>

@@ -6,6 +6,9 @@ import LinkCustomization from './customization/LinkCustomization';
 import AddWidget from './widgets/AddWidget';
 import TabsoluteLogo from './TabsoluteLogo';
 import ViewType from './ViewType';
+import { connect } from 'react-redux';
+import TimeWidget from './widgets/TimeWidget';
+import GreetingWidget from './widgets/GreetingWidget';
 
 class SettingsBar extends React.Component {
     constructor(props) {
@@ -22,6 +25,7 @@ class SettingsBar extends React.Component {
     }
 
     render() {
+        //console.log(JSON.stringify(this.props.widgetDetails.widgets));
         return(
             <div>
                 {this.state.settingsVisible ? 
@@ -30,6 +34,19 @@ class SettingsBar extends React.Component {
                         <TabsoluteLogo />
                         <ViewType />
                         <AddWidget />
+                    
+                    {this.props.widgetDetails.widgets.map((widget) => {
+                        if (widget.type === "Greeting") {
+                            return(
+                                <GreetingWidget widget={widget} />
+                            )
+                        }
+                        else if (widget.type === "Time") {
+                            return(
+                                <TimeWidget widget={widget} />
+                            )
+                        }
+                    })}
                     </div>
                     <div className="clickAway" style={{width: '80vw', height: '100%', cursor: 'pointer'}} onClick={this.toggleSettings}></div>
                 </div> : <i style={{color: 'white', fontSize: '22px', margin: '7px', cursor: 'pointer'}} className="fas fa-cog" onClick={this.toggleSettings}></i>}
@@ -38,4 +55,10 @@ class SettingsBar extends React.Component {
     }
 }
 
-export default SettingsBar;
+function mapStateToProps(state, ownProps) {
+    return {
+      widgetDetails: state.widgetDetails
+    }
+}
+
+export default connect(mapStateToProps)(SettingsBar);

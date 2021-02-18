@@ -1,11 +1,18 @@
 import React from 'react';
+import { addWidget } from '../../actions/widgetActions';
+import { connect } from 'react-redux';
 
 class AddWidget extends React.Component {
+    handleSubmit = (event) => {
+        event.preventDefault();
+        this.props.addWidget(event);
+    }
+
     render() {
         return(
             <div style={{padding: '10px', display: "flex", textAlign: 'left', margin: '20px 10px 10px 10px', backgroundColor: '#30363D', borderRadius: '7px'}}>
                 <p style={{color: 'white', fontWeight: 'bolder', marginTop: '3px'}}>Add Widget:</p>
-                <form onSubmit={this.props.addNewWidget} style={{marginLeft: '15px'}}>
+                <form onSubmit={this.handleSubmit} style={{marginLeft: '15px'}}>
                     <div style={{display: 'flex'}}>
                         <select ref="addWidget" name="widgets" id="widgets" style={{border: 'none', height: '20px', width: '120px', margin: '3px 0px 0px 0px'}}>
                             <option selected disabled>Select Widget</option>
@@ -22,4 +29,10 @@ class AddWidget extends React.Component {
     }
 }
 
-export default AddWidget;
+function mapStateToProps(state, ownProps) {
+    return {
+      widgetDetails: state.widgetDetails
+    }
+}
+
+export default connect(mapStateToProps, { addWidget })(AddWidget);

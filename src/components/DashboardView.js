@@ -18,7 +18,7 @@ class DashboardView extends React.Component {
     }
 
     componentDidMount() {
-      if (!store.getState().photoDetails) {
+      if (Object.keys(store.getState().photoDetails.photo).length === 0) {
         this.props.fetchPhoto();
       }
     }
@@ -44,9 +44,12 @@ class DashboardView extends React.Component {
           }
         }
       });
-      var photoURL = this.props.photoDetails.photo.urls.regular;
-      if (this.state.photoBackground === "false")
-        photoURL = "";
+      var photoURL = ""
+      if (!this.props.photoDetails.loading) {
+        photoURL = this.props.photoDetails.photo.urls.regular;
+        if (this.state.photoBackground === "false")
+          photoURL = "";
+      }
       return (
           <div className="dashboard" style={{backgroundImage: 'url(' + photoURL + ')', width: '100vw', height: '100vh', backgroundSize: 'cover', margin: '0', padding: '0', backgroundRepeat: 'no-repeat', backgroundColor: '#202124'}}>
             <SettingsBar />
@@ -74,4 +77,3 @@ function mapStateToProps(state, ownProps) {
 }
 
 export default connect(mapStateToProps, { fetchPhoto })(DashboardView);
-//export default DashboardView;
