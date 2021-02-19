@@ -1,4 +1,4 @@
-import { ADD_WIDGET, DELETE_WIDGET } from '../actions/types';
+import { ADD_WIDGET, DELETE_WIDGET, UPDATE_WIDGET } from '../actions/types';
 import { v4 as uuid } from 'uuid';
 
 
@@ -88,6 +88,17 @@ export default function(state = initialState, action) {
           return {
             ...state,
             widgets: newWidgetsState
+          }
+        case UPDATE_WIDGET:
+          const newUpdateState = state.widgets.map(widget => {
+            if (widget.id === action.payload.target.id) {
+              widget.value = action.payload.target.value
+            }
+            return widget;
+          })
+          return {
+            ...state,
+            widgets: newUpdateState
           }
         default:
           return state;

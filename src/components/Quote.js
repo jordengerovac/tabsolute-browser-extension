@@ -1,14 +1,49 @@
 import '../App.css';
 import React from 'react';
+import { updateWidget } from '../actions/widgetActions';
+import { connect } from 'react-redux';
 
 class Quote extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            quoteText: "",
+            quoteAuthor: ""
+        }
+    }
+    
+    getRandomQuote = () => {
+        fetch('https://type.fit/api/quotes')
+          .then(res => res.json())
+          .then(
+          (result) => {
+            var random_num = Math.floor(Math.random() * result.length);
+            this.setState({
+                quoteText: result[random_num].text,
+                quoteAuthor: result[random_num].author
+            })
+        })
+    }
+
+    componentDidMount() {
+        this.getRandomQuote();
+    }
+      
+
     render() {
         return (
             <div>
-                <p style={{fontSize: '80px'}}>Here is a Quote...</p>
+                <p style={{fontSize: '20px'}}>{this.state.quoteText}</p>
+                <p style={{fontSize: '20px'}}>- {this.state.quoteAuthor}</p>
             </div>
         )
     }
 }
 
-export default Quote;
+function mapStateToProps(state, ownProps) {
+    return {
+      widgetDetails: state.widgetDetails
+    }
+}
+
+export default connect(mapStateToProps, { updateWidget })(Quote);

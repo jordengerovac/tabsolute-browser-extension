@@ -1,6 +1,6 @@
 import '../../App.css';
 import React from 'react';
-import { deleteWidget } from '../../actions/widgetActions';
+import { deleteWidget, updateWidget } from '../../actions/widgetActions';
 import { connect } from 'react-redux';
 
 class GreetingWidget extends React.Component {
@@ -14,7 +14,7 @@ class GreetingWidget extends React.Component {
                         <i style={{color: 'white', cursor: 'pointer', margin: '0px 0px 0px 5px'}} class="fas fa-trash-alt" onClick={this.props.deleteWidget} id={this.props.widget.id}></i>
                     </div>
                 </div>
-                <input style={{marginTop: '10px'}} type="text" defaultValue={this.props.widget.value} onChange={this.props.handleNameChange} id={this.props.widget.id} placeholder="Name"></input>
+                <input style={{marginTop: '10px'}} type="text" defaultValue={this.props.widget.value} onChange={this.props.updateWidget} id={this.props.widget.id} placeholder="Name"></input>
                 {/*
                 {widget.display.customizationVisible === "true" ? <WidgetCustomization handleFontChange={this.props.handleFontChange} widget={widget} /> : null}
                 */}
@@ -29,4 +29,4 @@ function mapStateToProps(state, ownProps) {
     }
 }
 
-export default connect(mapStateToProps, { deleteWidget })(GreetingWidget);
+export default connect(mapStateToProps, { deleteWidget, updateWidget })(GreetingWidget);

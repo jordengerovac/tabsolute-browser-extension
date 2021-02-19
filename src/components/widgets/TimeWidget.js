@@ -1,11 +1,11 @@
 import '../../App.css';
 import React from 'react';
-import { deleteWidget } from '../../actions/widgetActions';
+import { deleteWidget, updateWidget } from '../../actions/widgetActions';
 import { connect } from 'react-redux';
 
 class TimeWidget extends React.Component {
     render() {
-        var inputId = "clocktype" + String(this.props.widget.id)
+        var inputId = String(this.props.widget.id)
         return (
             <div style={{backgroundColor: '#30363D', padding: '10px', margin: '0px 10px 10px 10px', borderRadius: '7px'}}>
                 <div style={{textAlign: 'left', margin: '0px 10px 10px 0px'}}>
@@ -17,9 +17,9 @@ class TimeWidget extends React.Component {
                 </div>
                 <fieldset id={inputId} style={{border: 'none', display: 'flex', color: 'white', justifyContent: 'center'}}>
                     <label>12-hour</label>
-                    <input style={{marginTop: '10px'}} type="radio" value="12" onChange={this.props.handleClockChange} id={this.props.widget.id} name={inputId} defaultChecked={this.props.widget.value === "12"}></input>
+                    <input style={{marginTop: '10px'}} type="radio" value="12" onChange={this.props.updateWidget} id={this.props.widget.id} name={inputId} defaultChecked={this.props.widget.value === "12"}></input>
                     <label>24-hour</label>
-                    <input style={{marginTop: '10px'}} type="radio" value="24" onChange={this.props.handleClockChange} id={this.props.widget.id} name={inputId} defaultChecked={this.props.widget.value !== "12"}></input>
+                    <input style={{marginTop: '10px'}} type="radio" value="24" onChange={this.props.updateWidget} id={this.props.widget.id} name={inputId} defaultChecked={this.props.widget.value !== "12"}></input>
                 </fieldset>
                 {/*
                 {this.props.widget.display.customizationVisible === "true" ? <WidgetCustomization handleFontChange={this.props.handleFontChange} widget={this.props.widget} /> : null}
@@ -35,4 +35,4 @@ function mapStateToProps(state, ownProps) {
     }
 }
 
-export default connect(mapStateToProps, { deleteWidget })(TimeWidget);
+export default connect(mapStateToProps, { deleteWidget, updateWidget })(TimeWidget);

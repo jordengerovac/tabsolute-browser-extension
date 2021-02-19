@@ -1,4 +1,4 @@
-import { ADD_WIDGET, DELETE_WIDGET } from './types';
+import { ADD_WIDGET, DELETE_WIDGET, UPDATE_WIDGET } from './types';
 
 export const addWidget = (event) => dispatch => {
     dispatch({
@@ -10,6 +10,13 @@ export const addWidget = (event) => dispatch => {
 export const deleteWidget = (event) => dispatch => {
     dispatch({
         type: DELETE_WIDGET,
+        payload: event
+    });
+}
+
+export const updateWidget = (event) => dispatch => {
+    dispatch({
+        type: UPDATE_WIDGET,
         payload: event
     });
 }

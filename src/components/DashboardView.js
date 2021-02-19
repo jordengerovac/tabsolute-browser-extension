@@ -54,22 +54,23 @@ class DashboardView extends React.Component {
         if (this.state.photoBackground === "false")
           photoURL = "";
       }
+
       return (
           <div className="dashboard" style={{backgroundImage: 'url(' + photoURL + ')', width: '100vw', height: '100vh', backgroundSize: 'cover', margin: '0', padding: '0', backgroundRepeat: 'no-repeat', backgroundColor: '#202124'}}>
             <SettingsBar />
             <div className="centered" style={{textAlign: 'center'}}>
               {this.props.widgetDetails.widgets.map((widget) => {
                 if (widget.type === "Greeting") {
-                  return(<Greeting value={widget.value} />)
+                  return(<Greeting widget={widget} />)
                 }
                 else if (widget.type === "Time") {
-                  return(<Time value={widget.value} />)
+                  return(<Time widget={widget} />)
                 }
                 else if (widget.type === "Quote") {
-                  return(<Quote value={widget.value} />)
+                  return(<Quote widget={widget} />)
                 }
                 else if (widget.type === "Weather") {
-                  return(<Weather value={widget.value} />)
+                  return(<Weather widget={widget} />)
                 }
               })}
             </div>
