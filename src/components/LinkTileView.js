@@ -9,31 +9,14 @@ import store from '../store';
 import { fetchPhoto, togglePhoto } from '../actions/photoActions';
 
 class LinkTileView extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = ({
-        photoBackground: "true",
-    })
-}
-
   componentDidMount() {
+    this.props.fetchPhoto();
+    /*
     if (Object.keys(store.getState().photoDetails.photo).length === 0) {
       this.props.fetchPhoto();
     }
+    */
   }
-
-togglePhotoBackground = () => {
-  var toggle = "";
-  if (this.state.photoBackground === "true") {
-    toggle = "false";
-  }
-  else {
-    toggle = "true";
-  }
-  this.setState({
-    photoBackground: toggle
-  })
-}
 
   render() {
     const theme = createMuiTheme({
