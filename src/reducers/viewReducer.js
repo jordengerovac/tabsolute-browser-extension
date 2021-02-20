@@ -6,8 +6,6 @@ const initialState = {
     loading: true
 }
 
-//const initialState = loadState();
-
 export default function(state = initialState, action) {
     switch(action.type) {
         case CHANGE_VIEW:

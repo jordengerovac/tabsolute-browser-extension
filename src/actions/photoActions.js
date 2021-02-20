@@ -1,4 +1,4 @@
-import { FETCH_PHOTO } from './types';
+import { FETCH_PHOTO, TOGGLE_PHOTO } from './types';
 
 export const fetchPhoto = () => dispatch => {
   const UNSPLASH_API_KEY = `${process.env.REACT_APP_UNSPLASH_API_KEY}`;
@@ -12,5 +12,12 @@ export const fetchPhoto = () => dispatch => {
         type: FETCH_PHOTO,
         payload: photo
     });
+  })
+}
+
+export const togglePhoto = (event) => dispatch => {
+  dispatch({
+    type: TOGGLE_PHOTO,
+    payload: event
   })
 }

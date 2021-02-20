@@ -1,4 +1,4 @@
-import { ADD_LINK_TILE, DELETE_LINK_TILE } from './types';
+import { ADD_LINK_TILE, DELETE_LINK_TILE, UPDATE_LINK_TILE } from './types';
 
 export const addLinkTile = (event) => dispatch => {
     dispatch({
@@ -10,6 +10,13 @@ export const addLinkTile = (event) => dispatch => {
 export const deleteLinkTile = (event) => dispatch => {
     dispatch({
         type: DELETE_LINK_TILE,
+        payload: event
+    });
+}
+
+export const updateLinkTile = (event) => dispatch => {
+    dispatch({
+        type: UPDATE_LINK_TILE,
         payload: event
     });
 }

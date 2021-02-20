@@ -1,4 +1,4 @@
-import { ADD_LINK_TILE, DELETE_LINK_TILE } from '../actions/types';
+import { ADD_LINK_TILE, DELETE_LINK_TILE, UPDATE_LINK_TILE } from '../actions/types';
 import { v4 as uuid } from 'uuid';
 
 const initialState = {
@@ -40,10 +40,30 @@ export default function(state = initialState, action) {
         }
       case DELETE_LINK_TILE:
         const newLinkTileState = state.tiles.filter(tile => action.payload.target.id !== tile.id);
-          return {
-            ...state,
-            tiles: newLinkTileState
+        return {
+          ...state,
+          tiles: newLinkTileState
+        }
+      case UPDATE_LINK_TILE:
+        const attribute = action.payload.target.name;
+        const newUpdateState = state.tiles.map((tile) => {
+          if (tile.id === action.payload.target.id) {
+            if (attribute === "name") {
+              tile.name = action.payload.target.value
+            }
+            else if (attribute === "icon") {
+              tile.icon = action.payload.target.value
+            }
+            else {
+              tile.value = action.payload.target.value
+            }
           }
+        return tile;
+        })
+        return {
+          ...state,
+          tiles: newUpdateState
+        }
       default:
         return state
     }

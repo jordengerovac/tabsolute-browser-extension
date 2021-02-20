@@ -1,7 +1,7 @@
 import '../../App.css';
 import React from 'react';
 import { connect } from 'react-redux';
-import { addLinkTile, deleteLinkTile } from '../../actions/linkTileActions';
+import { addLinkTile, deleteLinkTile, updateLinkTile } from '../../actions/linkTileActions';
 
 class LinkCustomization extends React.Component {
     render() {
@@ -78,15 +78,15 @@ class LinkCustomization extends React.Component {
                                 <div style={{float: 'left'}}>
                                     <div>
                                         <p>Name</p>
-                                        <input defaultValue={tile.name} name="name" onChange={this.props.handleTileChange} id={tile.id} style={{width: '140px'}}></input>
+                                        <input defaultValue={tile.name} name="name" onChange={this.props.updateLinkTile} id={tile.id} style={{width: '140px'}}></input>
                                     </div>
                                     <div>
                                         <p>URL</p>
-                                        <input defaultValue={tile.value} name="value" onChange={this.props.handleTileChange} id={tile.id} style={{width: '140px'}}></input>
+                                        <input defaultValue={tile.value} name="value" onChange={this.props.updateLinkTile} id={tile.id} style={{width: '140px'}}></input>
                                     </div>
                                     <div>
                                         <p>Icon</p>
-                                        <select id={tile.id} style={{border: 'none', height: '20px', width: '147px'}} onChange={this.props.handleTileChange} name="icon">
+                                        <select id={tile.id} style={{border: 'none', height: '20px', width: '147px'}} onChange={this.props.updateLinkTile} name="icon">
                                                 {iconMap.map((icon) => {
                                                     return(
                                                         <option value={icon.value} selected={icon.value === tile.icon}>{icon.key}</option>
@@ -113,4 +113,4 @@ function mapStateToProps(state, ownProps) {
     }
 }
 
-export default connect(mapStateToProps, { addLinkTile, deleteLinkTile })(LinkCustomization);
+export default connect(mapStateToProps, { addLinkTile, deleteLinkTile, updateLinkTile })(LinkCustomization);

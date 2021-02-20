@@ -25,7 +25,6 @@ class SettingsBar extends React.Component {
     }
 
     render() {
-        //console.log(JSON.stringify(this.props.widgetDetails.widgets));
         return(
             <div>
                 {this.state.settingsVisible ? 
@@ -58,7 +57,7 @@ class SettingsBar extends React.Component {
                         }
                     })}
                     <LinkTileWidget />
-                    <p style={{marginBottom: '25px'}}><a href="https://paypal.me/jordengerovac?locale.x=en_US" style={{textDecoration: 'none', color: '#4495F6'}}>Support the cause</a></p>
+                    <p style={{marginBottom: '25px'}}><a href="https://paypal.me/jordengerovac?locale.x=en_US" style={{textDecoration: 'none', color: '#4495F6'}}>Support the project</a></p>
                     </div>
                     <div className="clickAway" style={{width: '80vw', height: '100%', cursor: 'pointer'}} onClick={this.toggleSettings}></div>
                 </div> : <i style={{color: 'white', fontSize: '22px', margin: '7px', cursor: 'pointer'}} className="fas fa-cog" onClick={this.toggleSettings}></i>}
