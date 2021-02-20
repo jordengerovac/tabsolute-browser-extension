@@ -1,5 +1,7 @@
 import '../../App.css';
 import React from 'react';
+import { connect } from 'react-redux';
+import { addLinkTile, deleteLinkTile } from '../../actions/linkTileActions';
 
 class LinkCustomization extends React.Component {
     render() {
@@ -68,7 +70,7 @@ class LinkCustomization extends React.Component {
                 <div style={{backgroundColor: '#30363D', padding: '10px', borderRadius: '7px'}}>
                     <div style={{textAlign: 'left', margin: '0px 10px 20px 0px', display: 'flex'}}>
                         <p style={{float: 'left', color: 'white', marginTop: '3px'}}>Add Link Tile</p>
-                        <button style={{backgroundColor: '#0bb508', border: 'none', borderRadius: '10%', fontSize: '15px', margin: '0px 0px 0px 18px', color: 'white', height: '25px', width: '25px', paddingBottom: '2px', cursor: 'pointer'}} onClick={this.props.addNewLinkTile}>+</button>
+                        <button style={{backgroundColor: '#0bb508', border: 'none', borderRadius: '10%', fontSize: '15px', margin: '0px 0px 0px 18px', color: 'white', height: '25px', width: '25px', paddingBottom: '2px', cursor: 'pointer'}} onClick={this.props.addLinkTile}>+</button>
                     </div>
                     {this.props.tiles.map((tile) => {
                         return(
@@ -76,11 +78,11 @@ class LinkCustomization extends React.Component {
                                 <div style={{float: 'left'}}>
                                     <div>
                                         <p>Name</p>
-                                        <input value={tile.name} name="name" onChange={this.props.handleTileChange} id={tile.id} style={{width: '140px'}}></input>
+                                        <input defaultValue={tile.name} name="name" onChange={this.props.handleTileChange} id={tile.id} style={{width: '140px'}}></input>
                                     </div>
                                     <div>
                                         <p>URL</p>
-                                        <input value={tile.value} name="value" onChange={this.props.handleTileChange} id={tile.id} style={{width: '140px'}}></input>
+                                        <input defaultValue={tile.value} name="value" onChange={this.props.handleTileChange} id={tile.id} style={{width: '140px'}}></input>
                                     </div>
                                     <div>
                                         <p>Icon</p>
@@ -94,7 +96,7 @@ class LinkCustomization extends React.Component {
                                     </div>
                                 </div>
                                 <div style={{marginRight: '30px'}}>
-                                    <i style={{color: 'white', cursor: 'pointer', margin: '0px 0px 0px 25px'}} class="fas fa-trash-alt" onClick={this.props.handleTileDelete} id={tile.id}></i>
+                                    <i style={{color: 'white', cursor: 'pointer', margin: '0px 0px 0px 25px'}} class="fas fa-trash-alt" onClick={this.props.deleteLinkTile} id={tile.id}></i>
                                 </div>
                             </div>
                         )
@@ -105,4 +107,10 @@ class LinkCustomization extends React.Component {
     }
 }
 
-export default LinkCustomization;
+function mapStateToProps(state, ownProps) {
+    return {
+      linkTileDetails: state.linkTileDetails
+    }
+}
+
+export default connect(mapStateToProps, { addLinkTile, deleteLinkTile })(LinkCustomization);

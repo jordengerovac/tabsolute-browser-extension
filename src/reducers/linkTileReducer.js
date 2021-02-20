@@ -26,7 +26,25 @@ const initialState = {
 
 export default function(state = initialState, action) {
     switch(action.type) {
-        default:
-            return state
+      case ADD_LINK_TILE:
+        var newLinkTile = {}
+        newLinkTile = {
+          id: uuid(),
+          name: "New Link Tile",
+          value: "https://www.google.com",
+          icon: "fas fa-link"
+        }
+        return {
+          ...state,
+          tiles: [...state.tiles, newLinkTile]
+        }
+      case DELETE_LINK_TILE:
+        const newLinkTileState = state.tiles.filter(tile => action.payload.target.id !== tile.id);
+          return {
+            ...state,
+            tiles: newLinkTileState
+          }
+      default:
+        return state
     }
 }

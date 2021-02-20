@@ -4,10 +4,6 @@ import { UPDATE_WIDGET_FONT } from '../../actions/types';
 import store from '../../store';
 
 class WidgetCustomization extends React.Component {
-    handleChange = (event) => {
-
-    }
-
     updateWidgetFont = (event) => {
         if (event.key === "Enter" ) {
             const payload = {
