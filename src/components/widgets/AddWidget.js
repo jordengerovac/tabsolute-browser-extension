@@ -10,7 +10,7 @@ class AddWidget extends React.Component {
 
     render() {
         return(
-            <div style={{padding: '10px', display: "flex", textAlign: 'left', margin: '20px 10px 10px 10px', backgroundColor: '#30363D', borderRadius: '7px'}}>
+            <div style={{padding: '10px', display: "flex", textAlign: 'left', margin: '10px 10px 10px 10px', backgroundColor: '#2D3339', borderRadius: '7px'}}>
                 <p style={{color: 'white', fontWeight: 'bolder', marginTop: '3px'}}>Add Widget:</p>
                 <form onSubmit={this.handleSubmit} style={{marginLeft: '15px'}}>
                     <div style={{display: 'flex'}}>

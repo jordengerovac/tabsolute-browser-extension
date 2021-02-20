@@ -18,10 +18,10 @@ class Greeting extends React.Component {
         greeting = "morning"
         }
         if (this.props.widget.value !== "") 
-            return (<h3 style={{margin: '0', color: 'white', fontSize: this.props.widget.display.font + 'px'}}>Good {greeting}, {this.props.widget.value}</h3>)
+            return (<h3 style={{margin: '0', fontSize: this.props.widget.display.font + 'px'}}>Good {greeting}, {this.props.widget.value}</h3>)
         
         else 
-            return (<h3 style={{margin: '0', color: 'white', fontSize: this.props.widget.display.font + 'px'}}>Good {greeting}</h3>)
+            return (<h3 style={{margin: '0', color: '', fontSize: this.props.widget.display.font + 'px'}}>Good {greeting}</h3>)
     }
 }
 

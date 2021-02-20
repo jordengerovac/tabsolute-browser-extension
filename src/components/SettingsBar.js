@@ -4,11 +4,9 @@ import AddWidget from './widgets/AddWidget';
 import TabsoluteLogo from './TabsoluteLogo';
 import ViewType from './ViewType';
 import { connect } from 'react-redux';
-import TimeWidget from './widgets/TimeWidget';
-import GreetingWidget from './widgets/GreetingWidget';
-import QuoteWidget from './widgets/QuoteWidget';
-import WeatherWidget from './widgets/WeatherWidget';
-import LinkTileWidget from './widgets/LinkTileWidget';
+import DisplaySection from './DisplaySection';
+import WidgetSection from './WidgetSection';
+import LinkTileSection from './LinkTileSection';
 
 class SettingsBar extends React.Component {
     constructor(props) {
@@ -29,36 +27,13 @@ class SettingsBar extends React.Component {
             <div>
                 {this.state.settingsVisible ? 
                 <div style={{display: 'flex', height: '101vh', margin: '0', padding: '0', position: 'fixed', overflowX: 'hidden', zIndex: '100'}}>
-                    <div style={{height: '99vh', width: '320px', backgroundColor: '#202124', borderRadius: '0px 10px 10px 0px', textAlign: 'center', padding: '5px', borderRight: '1px solid #30363D', overflow: 'scroll'}}>
+                    <div style={{height: '99vh', width: '320px', backgroundColor: '#1F2023', borderRadius: '0px 10px 10px 0px', textAlign: 'center', padding: '5px', borderRight: '1px solid #30363D', overflow: 'scroll'}}>
                         <TabsoluteLogo />
-                        <ViewType />
-                        <AddWidget />
-                    
-                    {this.props.widgetDetails.widgets.map((widget) => {
-                        if (widget.type === "Greeting") {
-                            return(
-                                <GreetingWidget widget={widget} />
-                            )
-                        }
-                        else if (widget.type === "Time") {
-                            return(
-                                <TimeWidget widget={widget} />
-                            )
-                        }
-                        else if (widget.type === "Quote") {
-                            return(
-                                <QuoteWidget widget={widget} />
-                            )
-                        }
-                        else if (widget.type === "Weather") {
-                            return(
-                                <WeatherWidget widget={widget} />
-                            )
-                        }
-                    })}
-                    <LinkTileWidget />
-                    <p style={{marginBottom: '25px'}}><a href="https://paypal.me/jordengerovac?locale.x=en_US" style={{textDecoration: 'none', color: '#4495F6'}}>Support the project</a></p>
-                    </div>
+                        <DisplaySection />
+                        <WidgetSection />
+                        <LinkTileSection />
+                        <p style={{marginBottom: '25px'}}><a href="https://paypal.me/jordengerovac?locale.x=en_US" style={{textDecoration: 'none', color: '#4495F6'}}>Support the project</a></p>
+                        </div>
                     <div className="clickAway" style={{width: '80vw', height: '100%', cursor: 'pointer'}} onClick={this.toggleSettings}></div>
                 </div> : <i style={{color: 'white', fontSize: '22px', margin: '7px', cursor: 'pointer'}} className="fas fa-cog" onClick={this.toggleSettings}></i>}
             </div>

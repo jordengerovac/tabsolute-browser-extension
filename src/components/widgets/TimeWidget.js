@@ -21,7 +21,7 @@ class TimeWidget extends React.Component {
     render() {
         var inputId = String(this.props.widget.id)
         return (
-            <div style={{backgroundColor: '#30363D', padding: '10px', margin: '0px 10px 10px 10px', borderRadius: '7px'}}>
+            <div style={{backgroundColor: '#2D3339', padding: '10px', margin: '0px 10px 10px 10px', borderRadius: '7px'}}>
                 <div style={{textAlign: 'left', margin: '0px 10px 10px 0px'}}>
                     <p style={{float: 'left', color: 'white', fontWeight: 'bolder'}}>{this.props.widget.type}</p>
                     <div style={{float: 'right'}}>

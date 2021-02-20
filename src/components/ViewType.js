@@ -7,7 +7,7 @@ class ViewType extends React.Component {
     render() {
         const itemChecked = store.getState().viewDetails.view;
         return(
-            <div style={{margin: '20px 0px 20px 0px'}}>
+            <div style={{margin: '10px 0px 20px 0px'}}>
                 <fieldset name="view" style={{border: "none", display: 'flex', color: 'white', margin: 'auto', justifyContent: 'center'}}>
                     <label style={{margin: '0'}}>Dashboard</label>
                     <input type="radio" value="dashboard" name="view" style={{marginRight: '25px'}} onChange={this.props.changeView} defaultChecked={itemChecked === "dashboard"}></input>

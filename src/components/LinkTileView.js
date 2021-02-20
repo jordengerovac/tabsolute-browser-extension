@@ -33,7 +33,7 @@ class LinkTileView extends React.Component {
         photoURL = "";
     }
     return (
-      <div className="dashboard" style={{backgroundImage: 'url(' + photoURL + ')', width: '100vw', height: '100vh', backgroundSize: 'cover', margin: '0', padding: '0', backgroundRepeat: 'no-repeat', backgroundColor: '#30363D'}}>
+      <div className="dashboard" style={{backgroundImage: 'url(' + photoURL + ')', width: '100vw', height: '100vh', backgroundSize: 'cover', margin: '0', padding: '0', backgroundRepeat: 'no-repeat', backgroundColor: this.props.viewDetails.backgroundColour}}>
         <SettingsBar />
         <div className="centered" style={{textAlign: 'center', display: 'flex', flexWrap: 'wrap', width: String(250 * 4) + 'px', justifyContent: 'center'}}>
           {this.props.linkTileDetails.tiles.map((tile) => {
@@ -54,6 +54,9 @@ class LinkTileView extends React.Component {
             />
           </MuiThemeProvider>
         </div>
+        {this.props.photoDetails.photoVisible && !this.props.photoDetails.loading ? <div style={{position: 'absolute', bottom: '5px', right: '5px'}}>
+          <p><a href={this.props.photoDetails.photo.links.html + "https://unsplash.com/?utm_source=tabsolute&utm_medium=referral"}>Photo</a> by <a href={this.props.photoDetails.photo.user.links.html + "/?utm_source=tabsolute&utm_medium=referral"}>{this.props.photoDetails.photo.user.first_name} {this.props.photoDetails.photo.user.last_name}</a> on <a href="https://unsplash.com/?utm_source=tabsolute&utm_medium=referral">Unsplash</a></p>
+          </div> : null}
       </div>
     )
   }
@@ -62,7 +65,8 @@ class LinkTileView extends React.Component {
 function mapStateToProps(state, ownProps) {
   return {
     photoDetails: state.photoDetails,
-    linkTileDetails: state.linkTileDetails
+    linkTileDetails: state.linkTileDetails,
+    viewDetails: state.viewDetails
   }
 }
 
