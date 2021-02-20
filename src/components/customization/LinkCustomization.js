@@ -67,7 +67,7 @@ class LinkCustomization extends React.Component {
         
         return(
             <div style={{textAlign: 'left'}}>
-                <div style={{backgroundColor: '#30363D', padding: '10px', borderRadius: '7px'}}>
+                <div style={{backgroundColor: '#2D3339', padding: '10px', borderRadius: '7px'}}>
                     <div style={{textAlign: 'left', margin: '0px 10px 20px 0px', display: 'flex'}}>
                         <p style={{float: 'left', color: 'white', marginTop: '3px'}}>Add Link Tile</p>
                         <button style={{backgroundColor: '#0bb508', border: 'none', borderRadius: '10%', fontSize: '15px', margin: '0px 0px 0px 18px', color: 'white', height: '25px', width: '25px', paddingBottom: '2px', cursor: 'pointer'}} onClick={this.props.addLinkTile}>+</button>
