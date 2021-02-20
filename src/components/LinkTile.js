@@ -1,4 +1,3 @@
-import LinkTileView from "./LinkTileView"
 import React from 'react';
 
 class LinkTile extends React.Component {

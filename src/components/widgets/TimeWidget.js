@@ -2,8 +2,22 @@ import '../../App.css';
 import React from 'react';
 import { deleteWidget, updateWidget } from '../../actions/widgetActions';
 import { connect } from 'react-redux';
+import WidgetCustomization from '../customization/WidgetCustomization';
 
 class TimeWidget extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            displaySettingsVisible: false
+        }
+    }
+
+    toggleDisplaySettings = () => {
+        this.setState({
+            displaySettingsVisible: !this.state.displaySettingsVisible
+        })
+    }
+
     render() {
         var inputId = String(this.props.widget.id)
         return (
@@ -11,7 +25,7 @@ class TimeWidget extends React.Component {
                 <div style={{textAlign: 'left', margin: '0px 10px 10px 0px'}}>
                     <p style={{float: 'left', color: 'white', fontWeight: 'bolder'}}>{this.props.widget.type}</p>
                     <div style={{float: 'right'}}>
-                        <i onClick={this.props.toggleDisplaySettings} id={this.props.widget.id} style={{color: 'white', cursor: 'pointer', margin: '0px 5px 0px 5px'}} class="fas fa-wrench"></i>
+                        <i onClick={this.toggleDisplaySettings} id={this.props.widget.id} style={{color: 'white', cursor: 'pointer', margin: '0px 5px 0px 5px'}} class="fas fa-wrench"></i>
                         <i style={{color: 'white', cursor: 'pointer', margin: '0px 0px 0px 5px'}} class="fas fa-trash-alt" onClick={this.props.deleteWidget} id={this.props.widget.id}></i>
                     </div>
                 </div>
@@ -21,9 +35,7 @@ class TimeWidget extends React.Component {
                     <label>24-hour</label>
                     <input style={{marginTop: '10px'}} type="radio" value="24" onChange={this.props.updateWidget} id={this.props.widget.id} name={inputId} defaultChecked={this.props.widget.value !== "12"}></input>
                 </fieldset>
-                {/*
-                {this.props.widget.display.customizationVisible === "true" ? <WidgetCustomization handleFontChange={this.props.handleFontChange} widget={this.props.widget} /> : null}
-                */}
+                {this.state.displaySettingsVisible ? <WidgetCustomization widget={this.props.widget} /> : null}
             </div>
         )
     }

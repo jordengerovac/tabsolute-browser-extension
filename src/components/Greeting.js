@@ -16,12 +16,12 @@ class Greeting extends React.Component {
         }
         else {
         greeting = "morning"
-    }
-        return (
-            <div>
-                <p style={{fontSize: '65px'}}>Good {greeting}, {this.props.widget.value}</p>
-            </div>
-        )
+        }
+        if (this.props.widget.value !== "") 
+            return (<h3 style={{margin: '0', color: 'white', fontSize: this.props.widget.display.font + 'px'}}>Good {greeting}, {this.props.widget.value}</h3>)
+        
+        else 
+            return (<h3 style={{margin: '0', color: 'white', fontSize: this.props.widget.display.font + 'px'}}>Good {greeting}</h3>)
     }
 }
 

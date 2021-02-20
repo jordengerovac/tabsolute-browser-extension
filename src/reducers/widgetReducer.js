@@ -1,6 +1,5 @@
-import { ADD_WIDGET, DELETE_WIDGET, UPDATE_WIDGET } from '../actions/types';
+import { ADD_WIDGET, DELETE_WIDGET, UPDATE_WEATHER_WIDGET, UPDATE_WIDGET, UPDATE_WIDGET_FONT } from '../actions/types';
 import { v4 as uuid } from 'uuid';
-
 
 const initialState = {
     widgets: [
@@ -62,7 +61,7 @@ export default function(state = initialState, action) {
               value: "",
               display: {
                 customizationVisible: "false",
-                font: "50",
+                font: "20",
                 location: "center"
               }
             }
@@ -74,7 +73,7 @@ export default function(state = initialState, action) {
               value: "",
               display: {
                 customizationVisible: "false",
-                font: "50",
+                font: "30",
                 location: "center"
               }
             }
@@ -92,13 +91,35 @@ export default function(state = initialState, action) {
         case UPDATE_WIDGET:
           const newUpdateState = state.widgets.map(widget => {
             if (widget.id === action.payload.target.id) {
-              widget.value = action.payload.target.value
+                widget.value = action.payload.target.value
             }
             return widget;
           })
           return {
             ...state,
             widgets: newUpdateState
+          }
+        case UPDATE_WEATHER_WIDGET:
+          const newUpdateWeatherState = state.widgets.map(widget => {
+            if (widget.id === action.id) {
+              widget.value = action.payload
+            }
+            return widget;
+          })
+          return {
+            ...state,
+            widgets: newUpdateWeatherState
+          }
+        case UPDATE_WIDGET_FONT:
+          const newUpdateWidgetFontState = state.widgets.map(widget => {
+            if (widget.id === action.id) {
+              widget.display.font = action.payload
+            }
+            return widget;
+          })
+          return {
+            ...state,
+            widgets: newUpdateWidgetFontState
           }
         default:
           return state;

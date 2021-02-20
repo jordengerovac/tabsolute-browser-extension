@@ -1,6 +1,5 @@
 import '../App.css';
 import SettingsBar from './SettingsBar';
-import WeatherWidget from './widgets/WeatherWidget';
 import Greeting from './Greeting';
 import Time from './Time';
 import Quote from './Quote';
@@ -10,7 +9,6 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchPhoto } from '../actions/photoActions';
-import { loadState, saveState } from '../actions/stateActions';
 import store from '../store';
 
 class DashboardView extends React.Component {
@@ -57,7 +55,17 @@ class DashboardView extends React.Component {
 
       return (
           <div className="dashboard" style={{backgroundImage: 'url(' + photoURL + ')', width: '100vw', height: '100vh', backgroundSize: 'cover', margin: '0', padding: '0', backgroundRepeat: 'no-repeat', backgroundColor: '#202124'}}>
-            <SettingsBar />
+            <div>
+              <div style={{float: 'left'}}>
+                <SettingsBar />
+              </div>
+              <div style={{float:'right'}}>
+                {this.props.widgetDetails.widgets.map((widget) => {
+                  if (widget.type === "Weather") 
+                    return (<Weather widget={widget} />)
+                })}
+              </div>
+            </div>
             <div className="centered" style={{textAlign: 'center'}}>
               {this.props.widgetDetails.widgets.map((widget) => {
                 if (widget.type === "Greeting") {
@@ -68,9 +76,6 @@ class DashboardView extends React.Component {
                 }
                 else if (widget.type === "Quote") {
                   return(<Quote widget={widget} />)
-                }
-                else if (widget.type === "Weather") {
-                  return(<Weather widget={widget} />)
                 }
               })}
             </div>

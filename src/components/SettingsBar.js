@@ -1,8 +1,5 @@
 import '../App.css';
 import React from 'react';
-import tabsolute from '../images/tabsolutelogo2.png';
-import WidgetCustomization from './customization/WidgetCustomization';
-import LinkCustomization from './customization/LinkCustomization';
 import AddWidget from './widgets/AddWidget';
 import TabsoluteLogo from './TabsoluteLogo';
 import ViewType from './ViewType';
