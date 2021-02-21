@@ -9,7 +9,6 @@ class AudioWidget extends React.Component {
                 <div style={{textAlign: 'left', margin: '0px 10px 20px 0px'}}>
                     <p style={{float: 'left', color: 'white', fontWeight: 'bolder'}}>{this.props.widget.type}</p>
                     <div style={{float: 'right'}}>
-                        <i onClick={this.toggleDisplaySettings} id={this.props.widget.id} style={{color: 'white', cursor: 'pointer', margin: '0px 5px 0px 5px'}} class="fas fa-wrench"></i>
                         <i style={{color: 'white', cursor: 'pointer', margin: '0px 0px 0px 5px'}} class="fas fa-trash-alt" onClick={this.props.deleteWidget} id={this.props.widget.id}></i>
                     </div>
                 </div>
