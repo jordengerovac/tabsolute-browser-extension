@@ -1,7 +1,7 @@
 export function saveState (state) {
     try {
       const serializedState = JSON.stringify(state);
-      localStorage.setItem('state', serializedState);
+      localStorage.setItem('tabsolute', serializedState);
     } catch (e) {
       // Ignore write errors;
     }
@@ -9,7 +9,7 @@ export function saveState (state) {
 
 export function loadState() {
     try {
-      const serializedState = localStorage.getItem('state');
+      const serializedState = localStorage.getItem('tabsolute');
       if(serializedState === null) {
         return undefined;
       }
