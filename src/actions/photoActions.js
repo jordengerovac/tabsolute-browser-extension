@@ -13,6 +13,9 @@ export const fetchPhoto = () => dispatch => {
         payload: photo
     });
   })
+  .catch(function(error) {
+    console.log(error);
+  });
 }
 
 export const togglePhoto = (event) => dispatch => {

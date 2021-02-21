@@ -39,8 +39,10 @@ class WeatherWidget extends React.Component {
                     id: this.props.widget.id
                 }
                 store.dispatch(payload);
-                
             })
+            .catch(function(error) {
+                console.log(error);
+            });
         }
     }
 

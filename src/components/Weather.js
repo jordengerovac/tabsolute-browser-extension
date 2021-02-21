@@ -1,7 +1,38 @@
 import '../App.css';
 import React from 'react';
+import store from '../store';
+import { UPDATE_WEATHER_WIDGET } from '../actions/types';
 
 class Weather extends React.Component {
+    componentDidMount() {
+        if (this.props.widget.value !== "")
+            this.getWeather();
+    }
+
+    getWeather() {
+        const WEATHER_API_KEY = `${process.env.REACT_APP_WEATHER_API_KEY}`
+        fetch('https://api.openweathermap.org/data/2.5/weather?q=' + this.props.widget.value.split(":@:")[0] + '&units=metric&appid=' + WEATHER_API_KEY)
+        .then(res => res.json())
+        .then(
+        (result) => {
+            const city = this.props.widget.value;
+            const temp_min = result.main.temp_min;
+            const temp_max = result.main.temp_max;
+            const clouds = result.weather[0].description;
+            const value = city + ":@:" + temp_min + ":@:" + temp_max + ":@:" + clouds
+            
+            const payload = {
+                type: UPDATE_WEATHER_WIDGET,
+                payload: value,
+                id: this.props.widget.id
+            }
+            store.dispatch(payload);
+        })
+        .catch(function(error) {
+            console.log(error);
+        });
+    }
+
     render() {
         var clouds = String(this.props.widget.value.split(":@:")[3]);
         var icon = "";
