@@ -27,6 +27,9 @@ class Quote extends React.Component {
                 quoteAuthor: author
             })
         })
+        .catch(function(error) {
+            console.log(error);
+        });
     }
 
     componentDidMount() {
