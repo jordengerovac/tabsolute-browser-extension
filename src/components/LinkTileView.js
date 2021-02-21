@@ -5,19 +5,9 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import React from 'react';
 import { connect } from 'react-redux';
 import LinkTile from './LinkTile';
-import store from '../store';
-import { fetchPhoto, togglePhoto } from '../actions/photoActions';
+import { togglePhoto } from '../actions/photoActions';
 
 class LinkTileView extends React.Component {
-  componentDidMount() {
-    this.props.fetchPhoto();
-    /*
-    if (Object.keys(store.getState().photoDetails.photo).length === 0) {
-      this.props.fetchPhoto();
-    }
-    */
-  }
-
   render() {
     const theme = createMuiTheme({
         palette: {
@@ -70,4 +60,4 @@ function mapStateToProps(state, ownProps) {
   }
 }
 
-export default connect(mapStateToProps, { fetchPhoto, togglePhoto })(LinkTileView);
+export default connect(mapStateToProps, { togglePhoto })(LinkTileView);

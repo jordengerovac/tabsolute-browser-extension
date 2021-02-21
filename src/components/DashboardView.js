@@ -9,19 +9,9 @@ import Switch from '@material-ui/core/Switch';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchPhoto, togglePhoto } from '../actions/photoActions';
-import store from '../store';
+import { togglePhoto } from '../actions/photoActions';
 
 class DashboardView extends React.Component {
-  componentDidMount() {
-    this.props.fetchPhoto();
-    /*
-    if (Object.keys(store.getState().photoDetails.photo).length === 0) {
-      this.props.fetchPhoto();
-    }
-    */
-  }
-
   render() {
     const theme = createMuiTheme({
       palette: {
@@ -61,9 +51,6 @@ class DashboardView extends React.Component {
               else if (widget.type === "Quote") {
                 return(<Quote widget={widget} />)
               }
-              else if (widget.type === "Audio") {
-                return(<Audio widget={widget} />)
-              }
             })}
           </div>
           <div style={{position: 'absolute', bottom: '0px'}}>
@@ -94,4 +81,4 @@ function mapStateToProps(state, ownProps) {
   }
 }
 
-export default connect(mapStateToProps, { fetchPhoto, togglePhoto })(DashboardView);
+export default connect(mapStateToProps, { togglePhoto })(DashboardView);

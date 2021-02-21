@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import ReactHowler from 'react-howler';
 import Inspirational from '../audio/inspiration.mp3'
 import Calm from '../audio/calming.mp3'
