@@ -2,7 +2,22 @@ import { FETCH_PHOTO, TOGGLE_PHOTO } from '../actions/types';
 
 
 const initialState = {
-    photo: {},
+    fetchedPhoto: {},
+    currentPhoto: {
+        urls: {
+            full: "https://images.unsplash.com/photo-1573491768509-318a36d85f5d?crop=entropy&cs=srgb&fm=jpg&ixid=MXwyMDQ2ODV8MHwxfGNvbGxlY3Rpb258MXwxOTQyODE1OXx8fHx8Mnw&ixlib=rb-1.2.1&q=85"
+        },
+        user: {
+            first_name: "Daniel",
+            last_name: "Seßler",
+            links: {
+                html: "https://unsplash.com/@danielsessler"
+            }
+        },
+        links: {
+            html: "https://unsplash.com/photos/DSlHgwYuU3k"
+        }
+    },
     photoVisible: true,
     loading: true
 }
@@ -10,9 +25,14 @@ const initialState = {
 export default function(state = initialState, action) {
     switch(action.type) {
         case FETCH_PHOTO:
+            var currentPhotoObj = initialState.currentPhoto;
+            if (Object.keys(state.fetchedPhoto).length !== 0) {
+                currentPhotoObj = state.fetchedPhoto;
+            }
             return {
                 ...state,
-                photo: action.payload,
+                currentPhoto: currentPhotoObj,
+                fetchedPhoto: action.payload,
                 loading: false
             }
         case TOGGLE_PHOTO:

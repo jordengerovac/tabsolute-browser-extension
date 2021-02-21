@@ -9,6 +9,8 @@ import Audio from './Audio';
 class View extends React.Component {
   componentDidMount() {
     this.props.fetchPhoto();
+    const imagesToBePreloaded = [this.props.photoDetails.currentPhoto.urls.regular]
+    imagesToBePreloaded.forEach(image => { new Image().src = image })
   }
 
   render(){
