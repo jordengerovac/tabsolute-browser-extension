@@ -21,7 +21,6 @@ class DashboardView extends React.Component {
       }
     });
     var currentPhotoURL = ""
-    //console.log(this.props.photoDetails.fetchedPhoto);
     if (!this.props.photoDetails.loading) {
       currentPhotoURL = this.props.photoDetails.currentPhoto.urls.full;
       if (!this.props.photoDetails.photoVisible)

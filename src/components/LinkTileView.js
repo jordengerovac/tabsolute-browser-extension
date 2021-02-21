@@ -16,37 +16,50 @@ class LinkTileView extends React.Component {
           }
         }
       });
-    var photoURL = ""
+
+    var currentPhotoURL = ""
     if (!this.props.photoDetails.loading) {
-      photoURL = this.props.photoDetails.fetchedPhoto.urls.full;
+      currentPhotoURL = this.props.photoDetails.currentPhoto.urls.full;
       if (!this.props.photoDetails.photoVisible)
-        photoURL = "";
+        currentPhotoURL = "";
     }
+
+    var fetchedPhotoURL = ""
+    if (!this.props.photoDetails.loading) {
+      fetchedPhotoURL = this.props.photoDetails.fetchedPhoto.urls.full;
+      if (!this.props.photoDetails.photoVisible)
+        fetchedPhotoURL = "";
+    }
+
     return (
-      <div className="dashboard" style={{backgroundImage: 'url(' + photoURL + ')', width: '100vw', height: '100vh', backgroundSize: 'cover', margin: '0', padding: '0', backgroundRepeat: 'no-repeat', backgroundPosition: '50% 50%', backgroundColor: this.props.viewDetails.backgroundColour}}>
-        <SettingsBar />
-        <div className="centered" style={{textAlign: 'center', display: 'flex', flexWrap: 'wrap', width: String(250 * 4) + 'px', justifyContent: 'center'}}>
-          {this.props.linkTileDetails.tiles.map((tile) => {
-            return (
-              <LinkTile tile={tile}/>
-            )
-          })}
+      <div style={{height: '100vh', overflow: 'hidden'}}>
+        <div className="dashboard" style={{backgroundImage: 'url(' + currentPhotoURL + ')', width: '100vw', height: '100vh', backgroundSize: 'cover', margin: '0', padding: '0', backgroundRepeat: 'no-repeat', backgroundPosition: '50% 50%', backgroundColor: this.props.viewDetails.backgroundColour}}>
+          <SettingsBar />
+          <div className="centered" style={{textAlign: 'center', display: 'flex', flexWrap: 'wrap', width: String(250 * 4) + 'px', justifyContent: 'center'}}>
+            {this.props.linkTileDetails.tiles.map((tile) => {
+              return (
+                <LinkTile tile={tile}/>
+              )
+            })}
+          </div>
+          <div style={{position: 'absolute', bottom: '0px'}}>
+            <MuiThemeProvider theme={theme}>
+              <Switch
+                checked={this.props.photoDetails.photoVisible}
+                onClick={this.props.togglePhoto}
+                onClick={this.props.togglePhoto}
+                color="primary"
+                name="photoBackground"
+                inputProps={{ 'aria-label': 'primary checkbox' }}
+              />
+            </MuiThemeProvider>
+          </div>
+          {this.props.photoDetails.photoVisible && !this.props.photoDetails.loading ? <div style={{position: 'absolute', bottom: '5px', right: '5px', color: this.props.viewDetails.fontColour}}>
+              <p><a style={{color: this.props.viewDetails.fontColour}} href={this.props.photoDetails.currentPhoto.links.html + "https://unsplash.com/?utm_source=tabsolute&utm_medium=referral"}>Photo</a> by <a style={{color: this.props.viewDetails.fontColour}} href={this.props.photoDetails.currentPhoto.user.links.html + "/?utm_source=tabsolute&utm_medium=referral"}>{this.props.photoDetails.currentPhoto.user.first_name} {this.props.photoDetails.currentPhoto.user.last_name}</a> on <a style={{color: this.props.viewDetails.fontColour}} href="https://unsplash.com/?utm_source=tabsolute&utm_medium=referral">Unsplash</a></p>
+              </div> : null}
         </div>
-        <div style={{position: 'absolute', bottom: '0px'}}>
-          <MuiThemeProvider theme={theme}>
-            <Switch
-              checked={this.props.photoDetails.photoVisible}
-              onClick={this.props.togglePhoto}
-              onClick={this.props.togglePhoto}
-              color="primary"
-              name="photoBackground"
-              inputProps={{ 'aria-label': 'primary checkbox' }}
-            />
-          </MuiThemeProvider>
+        <div style={{backgroundImage: 'url(' + fetchedPhotoURL + ')', width: '100vw', height: '100vh', backgroundSize: 'cover'}}>
         </div>
-        {this.props.photoDetails.photoVisible && !this.props.photoDetails.loading ? <div style={{position: 'absolute', bottom: '5px', right: '5px', color: this.props.viewDetails.fontColour}}>
-            <p><a style={{color: this.props.viewDetails.fontColour}} href={this.props.photoDetails.fetchedPhoto.links.html + "https://unsplash.com/?utm_source=tabsolute&utm_medium=referral"}>Photo</a> by <a style={{color: this.props.viewDetails.fontColour}} href={this.props.photoDetails.fetchedPhoto.user.links.html + "/?utm_source=tabsolute&utm_medium=referral"}>{this.props.photoDetails.fetchedPhoto.user.first_name} {this.props.photoDetails.fetchedPhoto.user.last_name}</a> on <a style={{color: this.props.viewDetails.fontColour}} href="https://unsplash.com/?utm_source=tabsolute&utm_medium=referral">Unsplash</a></p>
-            </div> : null}
       </div>
     )
   }
