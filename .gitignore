@@ -1,3 +1,4 @@
 .env
 /build/fontawesome-free-5.15.2-web
 /public/fontawesome-free-5.15.2-web
+/src/audio
