@@ -4,6 +4,7 @@ import Greeting from './Greeting';
 import Time from './Time';
 import Quote from './Quote';
 import Weather from './Weather';
+import Audio from './Audio';
 import Switch from '@material-ui/core/Switch';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import React from 'react';
@@ -59,6 +60,9 @@ class DashboardView extends React.Component {
               }
               else if (widget.type === "Quote") {
                 return(<Quote widget={widget} />)
+              }
+              else if (widget.type === "Audio") {
+                return(<Audio widget={widget} />)
               }
             })}
           </div>

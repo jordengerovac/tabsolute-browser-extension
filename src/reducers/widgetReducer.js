@@ -66,7 +66,19 @@ export default function(state = initialState, action) {
               }
             }
           }
-          else {
+          else if (action.payload === "Audio") {
+            newWidget = {
+              id: uuid(),
+              type: "Audio",
+              value: "Inspirational",
+              display: {
+                customizationVisible: "false",
+                font: "20",
+                location: "center"
+              }
+            }
+          }
+          else if (action.payload === "Quote") {
             newWidget = {
               id: uuid(),
               type: "Quote",
