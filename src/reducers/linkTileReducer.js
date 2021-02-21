@@ -39,14 +39,14 @@ export default function(state = initialState, action) {
           tiles: [...state.tiles, newLinkTile]
         }
       case DELETE_LINK_TILE:
-        const newLinkTileState = state.tiles.filter(tile => action.payload.target.id !== tile.id);
+        var newLinkTileState = state.tiles.filter(tile => action.payload.target.id !== tile.id);
         return {
           ...state,
           tiles: newLinkTileState
         }
       case UPDATE_LINK_TILE:
-        const attribute = action.payload.target.name;
-        const newUpdateState = state.tiles.map((tile) => {
+        var attribute = action.payload.target.name;
+        var newUpdateState = state.tiles.map((tile) => {
           if (tile.id === action.payload.target.id) {
             if (attribute === "name") {
               tile.name = action.payload.target.value

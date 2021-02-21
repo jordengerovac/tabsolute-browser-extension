@@ -83,13 +83,13 @@ export default function(state = initialState, action) {
             widgets: [...state.widgets, newWidget]
           }
         case DELETE_WIDGET:
-          const newWidgetsState = state.widgets.filter(widget => action.payload.target.id !== widget.id);
+          var newWidgetsState = state.widgets.filter(widget => action.payload.target.id !== widget.id);
           return {
             ...state,
             widgets: newWidgetsState
           }
         case UPDATE_WIDGET:
-          const newUpdateState = state.widgets.map(widget => {
+          var newUpdateState = state.widgets.map(widget => {
             if (widget.id === action.payload.target.id) {
                 widget.value = action.payload.target.value
             }
@@ -100,7 +100,7 @@ export default function(state = initialState, action) {
             widgets: newUpdateState
           }
         case UPDATE_WEATHER_WIDGET:
-          const newUpdateWeatherState = state.widgets.map(widget => {
+          var newUpdateWeatherState = state.widgets.map(widget => {
             if (widget.id === action.id) {
               widget.value = action.payload
             }
@@ -111,7 +111,7 @@ export default function(state = initialState, action) {
             widgets: newUpdateWeatherState
           }
         case UPDATE_WIDGET_FONT:
-          const newUpdateWidgetFontState = state.widgets.map(widget => {
+          var newUpdateWidgetFontState = state.widgets.map(widget => {
             if (widget.id === action.id) {
               widget.display.font = action.payload
             }

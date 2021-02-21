@@ -2,6 +2,7 @@ import '../App.css';
 import React from 'react';
 import store from '../store';
 import { UPDATE_WEATHER_WIDGET } from '../actions/types';
+import { connect } from 'react-redux';
 
 class Weather extends React.Component {
     componentDidMount() {
@@ -15,13 +16,13 @@ class Weather extends React.Component {
         .then(res => res.json())
         .then(
         (result) => {
-            const city = this.props.widget.value;
-            const temp_min = result.main.temp_min;
-            const temp_max = result.main.temp_max;
-            const clouds = result.weather[0].description;
-            const value = city + ":@:" + temp_min + ":@:" + temp_max + ":@:" + clouds
+            var city = this.props.widget.value.split(":@:")[0];
+            var temp_min = result.main.temp_min;
+            var temp_max = result.main.temp_max;
+            var clouds = result.weather[0].description;
+            var value = city + ":@:" + temp_min + ":@:" + temp_max + ":@:" + clouds;
             
-            const payload = {
+            var payload = {
                 type: UPDATE_WEATHER_WIDGET,
                 payload: value,
                 id: this.props.widget.id
@@ -65,5 +66,6 @@ class Weather extends React.Component {
         )
     }
 }
+
 
 export default Weather;
