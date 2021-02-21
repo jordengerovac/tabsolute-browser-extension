@@ -18,9 +18,13 @@ class Quote extends React.Component {
           .then(
           (result) => {
             var random_num = Math.floor(Math.random() * result.length);
+            var text = result[random_num].text;
+            var author = result[random_num].author
+            if (author === null)
+                author = "Unknown";
             this.setState({
-                quoteText: result[random_num].text,
-                quoteAuthor: result[random_num].author
+                quoteText: text,
+                quoteAuthor: author
             })
         })
     }

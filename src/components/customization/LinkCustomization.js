@@ -78,15 +78,15 @@ class LinkCustomization extends React.Component {
                                 <div style={{float: 'left'}}>
                                     <div>
                                         <p>Name</p>
-                                        <input defaultValue={tile.name} name="name" onChange={this.props.updateLinkTile} id={tile.id} style={{width: '140px'}}></input>
+                                        <input defaultValue={tile.name} name="name" onChange={this.props.updateLinkTile} id={tile.id} style={{width: '140px', fontSize: '12px'}}></input>
                                     </div>
                                     <div>
                                         <p>URL</p>
-                                        <input defaultValue={tile.value} name="value" onChange={this.props.updateLinkTile} id={tile.id} style={{width: '140px'}}></input>
+                                        <input defaultValue={tile.value} name="value" onChange={this.props.updateLinkTile} id={tile.id} style={{width: '140px', fontSize: '12px'}}></input>
                                     </div>
                                     <div>
                                         <p>Icon</p>
-                                        <select id={tile.id} style={{border: 'none', height: '20px', width: '147px'}} onChange={this.props.updateLinkTile} name="icon">
+                                        <select id={tile.id} style={{border: 'none', height: '20px', width: '147px', fontSize: '12px'}} onChange={this.props.updateLinkTile} name="icon">
                                                 {iconMap.map((icon) => {
                                                     return(
                                                         <option value={icon.value} selected={icon.value === tile.icon}>{icon.key}</option>
