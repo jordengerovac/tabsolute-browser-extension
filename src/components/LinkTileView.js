@@ -24,6 +24,7 @@ class LinkTileView extends React.Component {
       currentPhotoURLFull = this.props.photoDetails.currentPhoto.urls.full;
       if (!this.props.photoDetails.photoVisible) {
         currentPhotoURLFull = "";
+        currentPhotoURLRegular = "";
       }
     }
 
