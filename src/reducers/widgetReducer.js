@@ -16,7 +16,7 @@ const initialState = {
         {
           id: uuid(),
           type: "Time",
-          value: "12",
+          value: "24",
           display: {
             customizationVisible: "false",
             font: "50",

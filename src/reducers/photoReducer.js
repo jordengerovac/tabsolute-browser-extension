@@ -19,6 +19,7 @@ const initialState = {
             html: "https://unsplash.com/photos/DSlHgwYuU3k"
         }
     },
+    firstFetch: 0,
     photoVisible: true,
     loading: true
 }
@@ -30,12 +31,25 @@ export default function(state = initialState, action) {
             if (Object.keys(state.fetchedPhoto).length !== 0) {
                 currentPhotoObj = state.fetchedPhoto;
             }
-            return {
-                ...state,
-                currentPhoto: currentPhotoObj,
-                fetchedPhoto: action.payload,
-                lastPhotoIndex: action.lastPhotoIndex,
-                loading: false
+            if (state.firstFetch === 0) {
+                return {
+                    ...state,
+                    currentPhoto: currentPhotoObj,
+                    fetchedPhoto: action.payload,
+                    lastPhotoIndex: action.lastPhotoIndex,
+                    loading: false,
+                    firstFetch: 1
+                }
+            }
+            else {
+                return {
+                    ...state,
+                    currentPhoto: currentPhotoObj,
+                    fetchedPhoto: action.payload,
+                    lastPhotoIndex: action.lastPhotoIndex,
+                    loading: false,
+                    firstFetch: -1
+                }
             }
         case TOGGLE_PHOTO:
             return {
