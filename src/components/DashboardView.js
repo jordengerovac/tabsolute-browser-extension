@@ -21,13 +21,21 @@ class DashboardView extends React.Component {
       }
     });
 
-    var currentPhotoURLFull = "";
-    var currentPhotoURLRegular = this.props.photoDetails.currentPhoto.urls.regular;
-    if (!this.props.photoDetails.loading) {
-      currentPhotoURLFull = this.props.photoDetails.currentPhoto.urls.full;
-      if (!this.props.photoDetails.photoVisible) {
-        currentPhotoURLFull = "";
-        currentPhotoURLRegular = "";
+    // Firefox 1.0+
+    const isFirefox = typeof InstallTrigger !== 'undefined';
+    if (isFirefox) {
+      currentPhotoURLFull = this.props.photoDetails.currentPhoto.urls.regular;
+      currentPhotoURLRegular = "";
+    }
+    else {
+      var currentPhotoURLFull = "";
+      var currentPhotoURLRegular = this.props.photoDetails.currentPhoto.urls.regular;
+      if (!this.props.photoDetails.loading) {
+        currentPhotoURLFull = this.props.photoDetails.currentPhoto.urls.full;
+        if (!this.props.photoDetails.photoVisible) {
+          currentPhotoURLFull = "";
+          currentPhotoURLRegular = "";
+        }
       }
     }
 
