@@ -6,6 +6,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import LinkTile from './LinkTile';
 import { togglePhoto } from '../actions/photoActions';
+import ProgressiveImage from 'react-progressive-graceful-image';
 
 class LinkTileView extends React.Component {
   render() {
@@ -17,23 +18,23 @@ class LinkTileView extends React.Component {
         }
       });
 
-    var currentPhotoURL = ""
+    var currentPhotoURLFull = "";
+    var currentPhotoURLRegular = this.props.photoDetails.currentPhoto.urls.regular;
     if (!this.props.photoDetails.loading) {
-      currentPhotoURL = this.props.photoDetails.currentPhoto.urls.full;
-      if (!this.props.photoDetails.photoVisible)
-        currentPhotoURL = "";
-    }
-
-    var fetchedPhotoURL = ""
-    if (!this.props.photoDetails.loading) {
-      fetchedPhotoURL = this.props.photoDetails.fetchedPhoto.urls.full;
-      if (!this.props.photoDetails.photoVisible)
-        fetchedPhotoURL = "";
+      currentPhotoURLFull = this.props.photoDetails.currentPhoto.urls.full;
+      if (!this.props.photoDetails.photoVisible) {
+        currentPhotoURLFull = "";
+      }
     }
 
     return (
-      <div style={{height: '100vh', overflow: 'hidden'}}>
-        <div className="dashboard" style={{backgroundImage: 'url(' + currentPhotoURL + ')', width: '100vw', height: '100vh', backgroundSize: 'cover', margin: '0', padding: '0', backgroundRepeat: 'no-repeat', backgroundPosition: '50% 50%', backgroundColor: this.props.viewDetails.backgroundColour}}>
+      <div style={{height: '100vh'}}>
+        <ProgressiveImage
+          src={currentPhotoURLFull}
+          placeholder={currentPhotoURLRegular}
+        >
+        {src =>
+        <div className="dashboard" style={{backgroundImage: 'url(' + src + ')', width: '100vw', height: '100vh', backgroundSize: 'cover', margin: '0', padding: '0', backgroundRepeat: 'no-repeat', backgroundPosition: '50% 50%', backgroundColor: this.props.viewDetails.backgroundColour}}>
           <SettingsBar />
           <div className="centered" style={{textAlign: 'center', display: 'flex', flexWrap: 'wrap', width: String(250 * 4) + 'px', justifyContent: 'center'}}>
             {this.props.linkTileDetails.tiles.map((tile) => {
@@ -58,8 +59,8 @@ class LinkTileView extends React.Component {
               <p><a style={{color: this.props.viewDetails.fontColour}} href={this.props.photoDetails.currentPhoto.links.html + "https://unsplash.com/?utm_source=tabsolute&utm_medium=referral"}>Photo</a> by <a style={{color: this.props.viewDetails.fontColour}} href={this.props.photoDetails.currentPhoto.user.links.html + "/?utm_source=tabsolute&utm_medium=referral"}>{this.props.photoDetails.currentPhoto.user.first_name} {this.props.photoDetails.currentPhoto.user.last_name}</a> on <a style={{color: this.props.viewDetails.fontColour}} href="https://unsplash.com/?utm_source=tabsolute&utm_medium=referral">Unsplash</a></p>
               </div> : null}
         </div>
-        <div style={{backgroundImage: 'url(' + fetchedPhotoURL + ')', width: '100vw', height: '100vh', backgroundSize: 'cover'}}>
-        </div>
+        }
+        </ProgressiveImage>
       </div>
     )
   }

@@ -5,6 +5,7 @@ const initialState = {
     fetchedPhoto: {},
     currentPhoto: {
         urls: {
+            regular: "https://images.unsplash.com/photo-1573491768509-318a36d85f5d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwyMDQ2ODV8MHwxfGNvbGxlY3Rpb258MXwxOTQyODE1OXx8fHx8Mnw&ixlib=rb-1.2.1&q=80&w=1080",
             full: "https://images.unsplash.com/photo-1573491768509-318a36d85f5d?crop=entropy&cs=srgb&fm=jpg&ixid=MXwyMDQ2ODV8MHwxfGNvbGxlY3Rpb258MXwxOTQyODE1OXx8fHx8Mnw&ixlib=rb-1.2.1&q=85"
         },
         user: {
