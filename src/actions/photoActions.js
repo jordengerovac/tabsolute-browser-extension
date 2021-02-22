@@ -2,7 +2,7 @@ import { FETCH_PHOTO, TOGGLE_PHOTO } from './types';
 
 export const fetchPhoto = () => dispatch => {
   const UNSPLASH_API_KEY = `${process.env.REACT_APP_UNSPLASH_API_KEY}`;
-  fetch("https://api.unsplash.com/collections/19428159/photos/?&per_page=100&client_id=" + UNSPLASH_API_KEY)
+  fetch("https://api.unsplash.com/collections/19428159/photos/?per_page=100&client_id=" + UNSPLASH_API_KEY)
   .then(res => res.json())
   .then(
     (result) => {
