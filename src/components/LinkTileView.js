@@ -28,6 +28,13 @@ class LinkTileView extends React.Component {
       }
     }
 
+    // Firefox 1.0+
+    const isFirefox = typeof InstallTrigger !== 'undefined';
+    if (isFirefox && this.props.photoDetails.photoVisible) {
+      currentPhotoURLFull = this.props.photoDetails.currentPhoto.urls.regular;
+      currentPhotoURLRegular = "";
+    }
+
     return (
       <div style={{height: '100vh'}}>
         <ProgressiveImage
@@ -56,7 +63,7 @@ class LinkTileView extends React.Component {
               />
             </MuiThemeProvider>
           </div>
-          {this.props.photoDetails.photoVisible && !this.props.photoDetails.loading ? <div style={{position: 'absolute', bottom: '5px', right: '5px', color: this.props.viewDetails.fontColour}}>
+          {this.props.photoDetails.photoVisible && !this.props.photoDetails.loading ? <div style={{position: 'absolute', bottom: '5px', right: '5px', color: this.props.viewDetails.fontColour, fontSize: '16px'}}>
               <p><a style={{color: this.props.viewDetails.fontColour}} href={this.props.photoDetails.currentPhoto.links.html + "/?utm_source=tabsolute&utm_medium=referral"}>Photo</a> by <a style={{color: this.props.viewDetails.fontColour}} href={this.props.photoDetails.currentPhoto.user.links.html + "/?utm_source=tabsolute&utm_medium=referral"}>{this.props.photoDetails.currentPhoto.user.first_name} {this.props.photoDetails.currentPhoto.user.last_name}</a> on <a style={{color: this.props.viewDetails.fontColour}} href="https://unsplash.com/?utm_source=tabsolute&utm_medium=referral">Unsplash</a></p>
               </div> : null}
         </div>

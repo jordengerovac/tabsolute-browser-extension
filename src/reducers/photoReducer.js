@@ -1,4 +1,4 @@
-import { FETCH_PHOTO, TOGGLE_PHOTO } from '../actions/types';
+import { FETCH_PHOTO, TOGGLE_PHOTO, SET_DEFAULT_PHOTO } from '../actions/types';
 
 
 const initialState = {
@@ -34,12 +34,18 @@ export default function(state = initialState, action) {
                 ...state,
                 currentPhoto: currentPhotoObj,
                 fetchedPhoto: action.payload,
+                lastPhotoIndex: action.lastPhotoIndex,
                 loading: false
             }
         case TOGGLE_PHOTO:
             return {
                 ...state,
                 photoVisible: !state.photoVisible
+            }
+        case SET_DEFAULT_PHOTO:
+            return {
+                ...state,
+                currentPhoto: initialState.currentPhoto
             }
         default:
             return state;

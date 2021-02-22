@@ -21,29 +21,29 @@ class DashboardView extends React.Component {
       }
     });
 
-    // Firefox 1.0+
-    const isFirefox = typeof InstallTrigger !== 'undefined';
-    if (isFirefox) {
-      currentPhotoURLFull = this.props.photoDetails.currentPhoto.urls.regular;
-      currentPhotoURLRegular = "";
-    }
-    else {
-      var currentPhotoURLFull = "";
-      var currentPhotoURLRegular = this.props.photoDetails.currentPhoto.urls.regular;
-      if (!this.props.photoDetails.loading) {
-        currentPhotoURLFull = this.props.photoDetails.currentPhoto.urls.full;
-        if (!this.props.photoDetails.photoVisible) {
-          currentPhotoURLFull = "";
-          currentPhotoURLRegular = "";
-        }
+    var currentPhotoURLFull = "";
+    var currentPhotoURLRegular = this.props.photoDetails.currentPhoto.urls.regular;
+    if (!this.props.photoDetails.loading) {
+      currentPhotoURLFull = this.props.photoDetails.currentPhoto.urls.full;
+      if (!this.props.photoDetails.photoVisible) {
+        currentPhotoURLFull = "";
+        currentPhotoURLRegular = "";
       }
     }
 
+    // Firefox 1.0+
+    const isFirefox = typeof InstallTrigger !== 'undefined';
+    if (isFirefox && this.props.photoDetails.photoVisible) {
+      currentPhotoURLFull = this.props.photoDetails.currentPhoto.urls.regular;
+      currentPhotoURLRegular = "";
+    }
+    
     return (
-      <div style={{height: '100vh'}}>
+      <div style={{height: '100vh', width: '100vw', backgroundColor: 'black'}}>
         <ProgressiveImage
           src={currentPhotoURLFull}
           placeholder={currentPhotoURLRegular}
+          style={{height: '100vh', width: '100vw', backgroundColor: 'black'}}
         >
           {src => 
           <div className="dashboard" id="dashboard" style={{backgroundImage: 'url(' + src + ')', width: '100vw', height: '100vh', backgroundSize: 'cover', margin: '0', padding: '0', backgroundRepeat: 'no-repeat', backgroundPosition: '50% 50%', backgroundColor: this.props.viewDetails.backgroundColour}}>
@@ -82,7 +82,7 @@ class DashboardView extends React.Component {
                 />
               </MuiThemeProvider>
             </div>
-            {this.props.photoDetails.photoVisible && !this.props.photoDetails.loading ? <div style={{position: 'absolute', bottom: '5px', right: '5px', color: this.props.viewDetails.fontColour}}>
+            {this.props.photoDetails.photoVisible && !this.props.photoDetails.loading ? <div style={{position: 'absolute', bottom: '5px', right: '5px', color: this.props.viewDetails.fontColour, fontSize: '16px'}}>
             <p><a style={{color: this.props.viewDetails.fontColour}} href={this.props.photoDetails.currentPhoto.links.html + "/?utm_source=tabsolute&utm_medium=referral"}>Photo</a> by <a style={{color: this.props.viewDetails.fontColour}} href={this.props.photoDetails.currentPhoto.user.links.html + "/?utm_source=tabsolute&utm_medium=referral"}>{this.props.photoDetails.currentPhoto.user.first_name} {this.props.photoDetails.currentPhoto.user.last_name}</a> on <a style={{color: this.props.viewDetails.fontColour}} href="https://unsplash.com/?utm_source=tabsolute&utm_medium=referral">Unsplash</a></p>
             </div> : null}
           </div>

@@ -3,29 +3,45 @@ import React from 'react';
 import { connect } from 'react-redux';
 import DashboardView from './DashboardView';
 import LinkTileView from './LinkTileView';
-import { fetchPhoto } from '../actions/photoActions';
+import { fetchPhoto, setDefaultPhoto } from '../actions/photoActions';
 import Audio from './Audio';
 
 class View extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      prevURL: ""
+    }
+  }
+
   componentDidMount() {
+    this.setState({
+      prevURL: this.props.photoDetails.currentPhoto.urls.regular
+    })
     this.props.fetchPhoto();
-    const imagesToBePreloaded = [this.props.photoDetails.currentPhoto.urls.regular]
-    imagesToBePreloaded.forEach(image => { new Image().src = image })
   }
 
   render(){
+    if (this.state.prevURL !== this.props.photoDetails.currentPhoto.urls.regular) {
       return (
-        <div>
-          {this.props.widgetDetails.widgets.map((widget) => {
-            if (widget.type === "Audio") {
-              return(<div><Audio widget={widget} /></div>)
-            }
-          })}
-          {this.props.viewDetails.view === "dashboard" ? <DashboardView /> : <LinkTileView />}
-        </div>
+          <div style={{width: '100vw', height: '100vh', backgroundColor: this.props.viewDetails.backgroundColour}}>
+            {this.props.widgetDetails.widgets.map((widget) => {
+              if (widget.type === "Audio") {
+                return(<div><Audio widget={widget} /></div>)
+              }
+            })}
+            {this.props.viewDetails.view === "dashboard" ? <DashboardView /> : <LinkTileView />}
+          </div>
         )
     }
+    
+    else {
+      return (
+        <div style={{width: '100vw', height: '100vh', backgroundColor: this.props.viewDetails.backgroundColour}}></div>
+      )
+    }
   }
+}
 
   function mapStateToProps(state, ownProps) {
     return {
@@ -35,4 +51,4 @@ class View extends React.Component {
     }
   }
 
-export default connect(mapStateToProps, { fetchPhoto })(View);
+export default connect(mapStateToProps, { fetchPhoto, setDefaultPhoto })(View);
