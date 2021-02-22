@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import LinkTile from './LinkTile';
 import { togglePhoto } from '../actions/photoActions';
 import ProgressiveImage from 'react-progressive-graceful-image';
+import PhotoCredits from './PhotoCredits';
 
 class LinkTileView extends React.Component {
   render() {
@@ -63,9 +64,7 @@ class LinkTileView extends React.Component {
               />
             </MuiThemeProvider>
           </div>
-          {this.props.photoDetails.photoVisible && !this.props.photoDetails.loading ? <div style={{position: 'absolute', bottom: '5px', right: '5px', color: this.props.viewDetails.fontColour, fontSize: '16px'}}>
-              <p><a style={{color: this.props.viewDetails.fontColour}} href={this.props.photoDetails.currentPhoto.links.html + "/?utm_source=tabsolute&utm_medium=referral"}>Photo</a> by <a style={{color: this.props.viewDetails.fontColour}} href={this.props.photoDetails.currentPhoto.user.links.html + "/?utm_source=tabsolute&utm_medium=referral"}>{this.props.photoDetails.currentPhoto.user.first_name} {this.props.photoDetails.currentPhoto.user.last_name}</a> on <a style={{color: this.props.viewDetails.fontColour}} href="https://unsplash.com/?utm_source=tabsolute&utm_medium=referral">Unsplash</a></p>
-              </div> : null}
+          <PhotoCredits />
         </div>
         }
         </ProgressiveImage>

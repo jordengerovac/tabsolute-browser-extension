@@ -35,11 +35,11 @@ class DisplaySection extends React.Component {
                         <div>
                             <div style={{marginBottom: '10px'}}>
                                 <p style={{color: 'white', fontSize: '15px', margin: '0px 0px 5px 20px'}}>Background Colour</p>
-                                <input type="text" defaultValue={this.props.viewDetails.backgroundColour} name="background" placeholder="Colour / Hex colour code (ex. #2D3339)" style={{width: '210px', fontSize: '12px'}} onKeyPress={this.updateDisplay}></input>
+                                <input type="text" defaultValue={this.props.viewDetails.backgroundColour} name="background" placeholder="Colour / Hex colour code (ex. #2D3339)" style={{width: '220px', fontSize: '12px'}} onKeyPress={this.updateDisplay}></input>
                             </div>
                             <div>
                                 <p style={{color: 'white', fontSize: '15px', margin: '0px 0px 5px 20px'}}>Font Colour</p>
-                                <input type="text" defaultValue={this.props.viewDetails.fontColour} name="font" placeholder="Colour / Hex colour code (ex. #2D3339)" style={{width: '210px', fontSize: '12px'}} onKeyPress={this.updateDisplay}></input>
+                                <input type="text" defaultValue={this.props.viewDetails.fontColour} name="font" placeholder="Colour / Hex colour code (ex. #2D3339)" style={{width: '220px', fontSize: '12px'}} onKeyPress={this.updateDisplay}></input>
                             </div>
                         </div>
                     </div>
