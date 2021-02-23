@@ -13,10 +13,14 @@ class AudioWidget extends React.Component {
                     </div>
                 </div>
                 <select onChange={this.props.updateWidget} ref="addWidget" name="widgets" id="widgets" style={{border: 'none', height: '20px', width: '120px', margin: '3px 0px 0px 0px'}} id={this.props.widget.id}>
-                    <option value="Calm" selected={this.props.widget.value === "Calm"}>Calm</option>
-                    <option value="Relaxing" selected={this.props.widget.value === "Relaxing"}>Relaxing</option>
-                    <option value="Inspirational" selected={this.props.widget.value === "Inspirational"}>Inspirational</option>
+                    <option value="Adventure" selected={this.props.widget.value === "Adventure"}>Adventure</option>
+                    <option value="New Dawn" selected={this.props.widget.value === "New Dawn"}>New Dawn</option>
+                    <option value="Once Again" selected={this.props.widget.value === "Once Again"}>Once Again</option>
+                    <option value="Piano Moment" selected={this.props.widget.value === "Piano Moment"}>Piano Moment</option>
+                    <option value="Slow Motion" selected={this.props.widget.value === "Slow Motion"}>Slow Motion</option>
+                    <option value="Tomorrow" selected={this.props.widget.value === "Tomorrow"}>Tomorrow</option>
                 </select>
+                <p style={{color: 'white', fontSize: '11px', marginTop: '5px'}}>Audio is retrieved from https://www.bensound.com</p>
             </div>
         )
     }

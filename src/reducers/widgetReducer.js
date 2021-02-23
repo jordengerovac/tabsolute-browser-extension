@@ -70,7 +70,7 @@ export default function(state = initialState, action) {
             newWidget = {
               id: uuid(),
               type: "Audio",
-              value: "Inspirational",
+              value: "Once Again",
               display: {
                 customizationVisible: "false",
                 font: "20",

@@ -28,6 +28,7 @@ class QuoteWidget extends React.Component {
                         <i style={{color: 'white', cursor: 'pointer', margin: '0px 0px 0px 5px'}} class="fas fa-trash-alt" onClick={this.props.deleteWidget} id={this.props.widget.id}></i>
                     </div>
                 </div>
+                <p style={{color: 'white', fontSize: '11px', marginTop: '25px'}}>Quotes are retrieved from https://type.fit/api/quotes</p>
                 {this.state.displaySettingsVisible ? <WidgetCustomization widget={this.props.widget} /> : null}
             </div>
         )

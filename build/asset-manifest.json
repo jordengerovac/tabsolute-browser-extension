@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/static/css/main.9243a473.chunk.css",
-    "main.js": "/static/js/main.9a6e71c1.chunk.js",
-    "main.js.map": "/static/js/main.9a6e71c1.chunk.js.map",
+    "main.js": "/static/js/main.73b9c44b.chunk.js",
+    "main.js.map": "/static/js/main.73b9c44b.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.bb0ba8a9.js",
     "runtime-main.js.map": "/static/js/runtime-main.bb0ba8a9.js.map",
     "static/js/2.6016b465.chunk.js": "/static/js/2.6016b465.chunk.js",
@@ -12,15 +12,18 @@
     "index.html": "/index.html",
     "static/css/main.9243a473.chunk.css.map": "/static/css/main.9243a473.chunk.css.map",
     "static/js/2.6016b465.chunk.js.LICENSE.txt": "/static/js/2.6016b465.chunk.js.LICENSE.txt",
-    "static/media/calming.92680df8.mp3": "/static/media/calming.92680df8.mp3",
-    "static/media/inspiration.dbdd4b5c.mp3": "/static/media/inspiration.dbdd4b5c.mp3",
-    "static/media/relaxing.c3ef2d0b.mp3": "/static/media/relaxing.c3ef2d0b.mp3",
-    "static/media/tabsolutelogo2.cd6dbf45.png": "/static/media/tabsolutelogo2.cd6dbf45.png"
+    "static/media/adventure.aed8b904.mp3": "/static/media/adventure.aed8b904.mp3",
+    "static/media/newdawn.bbcd52a0.mp3": "/static/media/newdawn.bbcd52a0.mp3",
+    "static/media/onceagain.6c0a1589.mp3": "/static/media/onceagain.6c0a1589.mp3",
+    "static/media/pianomoment.64b6fb0f.mp3": "/static/media/pianomoment.64b6fb0f.mp3",
+    "static/media/slowmotion.4c4825e9.mp3": "/static/media/slowmotion.4c4825e9.mp3",
+    "static/media/tabsolutelogo2.cd6dbf45.png": "/static/media/tabsolutelogo2.cd6dbf45.png",
+    "static/media/tomorrow.c2638284.mp3": "/static/media/tomorrow.c2638284.mp3"
   },
   "entrypoints": [
     "static/js/runtime-main.bb0ba8a9.js",
     "static/js/2.6016b465.chunk.js",
     "static/css/main.9243a473.chunk.css",
-    "static/js/main.9a6e71c1.chunk.js"
+    "static/js/main.73b9c44b.chunk.js"
   ]
 }
