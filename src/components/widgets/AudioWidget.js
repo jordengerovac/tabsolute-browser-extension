@@ -20,7 +20,7 @@ class AudioWidget extends React.Component {
                     <option value="Slow Motion" selected={this.props.widget.value === "Slow Motion"}>Slow Motion</option>
                     <option value="Tomorrow" selected={this.props.widget.value === "Tomorrow"}>Tomorrow</option>
                 </select>
-                <p style={{color: 'white', fontSize: '11px', marginTop: '5px'}}>Audio is retrieved from https://www.bensound.com</p>
+                <p style={{color: 'white', fontSize: '11px', marginTop: '5px'}}>Audio retrieved from https://www.bensound.com</p>
             </div>
         )
     }

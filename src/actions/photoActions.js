@@ -4,9 +4,9 @@ import store from '../store';
 export const fetchPhoto = () => dispatch => {
   const UNSPLASH_API_KEY = `${process.env.REACT_APP_UNSPLASH_API_KEY}`;
   var last_photo_index = store.getState().photoDetails.lastPhotoIndex;
-  var random_page_num = Math.floor(Math.random() * 100);
+  var random_page_num = Math.floor(Math.random() * 122);
   while (random_page_num === last_photo_index) {
-    random_page_num = Math.floor(Math.random() * 100);
+    random_page_num = Math.floor(Math.random() * 122);
   }
   fetch("https://api.unsplash.com/collections/19428159/photos/?page=" + random_page_num + "&per_page=1&client_id=" + UNSPLASH_API_KEY)
   .then(res => res.json())

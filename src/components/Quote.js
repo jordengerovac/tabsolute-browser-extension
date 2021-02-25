@@ -32,8 +32,28 @@ class Quote extends React.Component {
         });
     }
 
+    getRandomQuoteTwo = () => {
+        fetch('https://goquotes-api.herokuapp.com/api/v1/random?count=1')
+          .then(res => res.json())
+          .then(
+          (result) => {
+            console.log(result);
+            var text = result.quotes[0].text;
+            var author = result.quotes[0].author
+            if (author === null)
+                author = "Unknown";
+            this.setState({
+                quoteText: text,
+                quoteAuthor: author
+            })
+        })
+        .catch(function(error) {
+            console.log(error);
+        });
+    }
+
     componentDidMount() {
-        this.getRandomQuote();
+        this.getRandomQuoteTwo();
     }
       
 

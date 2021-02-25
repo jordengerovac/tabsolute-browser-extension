@@ -23,6 +23,14 @@ class LinkCustomization extends React.Component {
                 value: "fab fa-google"
             },
             {
+                key: "Apple",
+                value: "fab fa-apple"
+            },
+            {
+                key: "GitHub",
+                value: "fab fa-github"
+            },
+            {
                 key: "Link",
                 value: "fas fa-link"
             },
@@ -37,10 +45,6 @@ class LinkCustomization extends React.Component {
             {
                 key: "Briefcase",
                 value: "fas fa-briefcase"
-            },
-            {
-                key: "Apple",
-                value: "fab fa-apple"
             },
             {
                 key: "Bacon",
@@ -61,8 +65,31 @@ class LinkCustomization extends React.Component {
             {
                 key: "Book",
                 value: "fas fa-book"
+            },
+            {
+                key: "Cloud",
+                value: "fas fa-cloud"
+            },
+            {
+                key: "Music",
+                value: "fas fa-music"
+            },
+            {
+                key: "Compass",
+                value: "fas fa-compass"
+            },
+            {
+                key: "Plane",
+                value: "fas fa-plane"
+            },
+            {
+                key: "Shopping Cart",
+                value: "fas fa-shopping-cart"
+            },
+            {
+                key: "Bookmark",
+                value: "fas fa-bookmark"
             }
-
         ];
         
         return(

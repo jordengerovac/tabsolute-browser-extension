@@ -56,7 +56,7 @@ class Weather extends React.Component {
             <div style={{textAlign: 'right', margin: '7px', fontSize: this.props.widget.display.font + 'px'}}>
                 <p>{this.props.widget.value.split(":@:")[0]}</p>
                 <div>
-                    <i className={icon}  style={{color: 'white', fontSize: '40px'}}></i>
+                    <i className={icon}  style={{fontSize: '40px'}}></i>
                     <div style={{display: 'flex', justifyContent: 'flex-end'}}>
                         <p style={{margin: '6px'}}>{parseInt(this.props.widget.value.split(":@:")[1])}</p>
                         <p style={{margin: '6px'}}>{parseInt(this.props.widget.value.split(":@:")[2])}</p>
