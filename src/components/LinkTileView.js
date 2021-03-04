@@ -48,7 +48,7 @@ class LinkTileView extends React.Component {
           <div className="centered" style={{textAlign: 'center', display: 'flex', flexWrap: 'wrap', width: String(250 * 4) + 'px', justifyContent: 'center'}}>
             {this.props.linkTileDetails.tiles.map((tile) => {
               return (
-                <LinkTile tile={tile}/>
+                <LinkTile tile={tile} />
               )
             })}
           </div>
@@ -56,7 +56,6 @@ class LinkTileView extends React.Component {
             <MuiThemeProvider theme={theme}>
               <Switch
                 checked={this.props.photoDetails.photoVisible}
-                onClick={this.props.togglePhoto}
                 onClick={this.props.togglePhoto}
                 color="primary"
                 name="photoBackground"

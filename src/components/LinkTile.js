@@ -14,9 +14,10 @@ class LinkTile extends React.Component {
     }
 }
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
     return {
-      viewDetails: state.viewDetails
+      viewDetails: state.viewDetails,
+      linkTileDetails: state.linkTileDetails
     }
   }
   
