@@ -2,7 +2,6 @@ import '../App.css';
 import React from 'react';
 import store from '../store';
 import { UPDATE_WEATHER_WIDGET } from '../actions/types';
-import { connect } from 'react-redux';
 
 class Weather extends React.Component {
     componentDidMount() {

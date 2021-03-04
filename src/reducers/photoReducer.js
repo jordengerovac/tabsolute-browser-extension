@@ -2,7 +2,6 @@ import { FETCH_PHOTO, TOGGLE_PHOTO, SET_DEFAULT_PHOTO } from '../actions/types';
 
 
 const initialState = {
-    fetchedPhoto: {},
     currentPhoto: {
         urls: {
             regular: "https://images.unsplash.com/photo-1573491768509-318a36d85f5d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwyMDQ2ODV8MHwxfGNvbGxlY3Rpb258MXwxOTQyODE1OXx8fHx8Mnw&ixlib=rb-1.2.1&q=80&w=1080",
@@ -27,15 +26,10 @@ const initialState = {
 export default function(state = initialState, action) {
     switch(action.type) {
         case FETCH_PHOTO:
-            var currentPhotoObj = initialState.currentPhoto;
-            if (Object.keys(state.fetchedPhoto).length !== 0) {
-                currentPhotoObj = state.fetchedPhoto;
-            }
             if (state.firstFetch === 0) {
                 return {
                     ...state,
-                    currentPhoto: currentPhotoObj,
-                    fetchedPhoto: action.payload,
+                    currentPhoto: initialState.currentPhoto,
                     lastPhotoIndex: action.lastPhotoIndex,
                     loading: false,
                     firstFetch: 1
@@ -44,8 +38,7 @@ export default function(state = initialState, action) {
             else {
                 return {
                     ...state,
-                    currentPhoto: currentPhotoObj,
-                    fetchedPhoto: action.payload,
+                    currentPhoto: action.payload,
                     lastPhotoIndex: action.lastPhotoIndex,
                     loading: false,
                     firstFetch: -1

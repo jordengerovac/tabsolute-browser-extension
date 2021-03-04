@@ -36,6 +36,7 @@ class View extends React.Component {
     }
     
     else {
+      this.props.fetchPhoto();
       return (
         <div style={{width: '100vw', height: '100vh', backgroundColor: this.props.viewDetails.backgroundColour}}></div>
       )

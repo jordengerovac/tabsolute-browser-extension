@@ -1,8 +1,6 @@
 import '../App.css';
 import React from 'react';
-import AddWidget from './widgets/AddWidget';
 import TabsoluteLogo from './TabsoluteLogo';
-import ViewType from './ViewType';
 import { connect } from 'react-redux';
 import DisplaySection from './DisplaySection';
 import WidgetSection from './WidgetSection';
