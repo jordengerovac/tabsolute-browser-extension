@@ -1,7 +1,8 @@
-import { ADD_LINK_TILE, DELETE_LINK_TILE, UPDATE_LINK_TILE } from '../actions/types';
+import { ADD_LINK_TILE, DELETE_LINK_TILE, UPDATE_LINK_TILE, TOGGLE_LINKS_ON_DASHBOARD } from '../actions/types';
 import { v4 as uuid } from 'uuid';
 
 const initialState = {
+    showLinksInDashboard: false,
     tiles: [
         {
           id: uuid(),
@@ -65,6 +66,11 @@ export default function(state = initialState, action) {
           ...state,
           tiles: newUpdateState
         }
+      case TOGGLE_LINKS_ON_DASHBOARD:
+        return {
+          ...state,
+          showLinksInDashboard: !state.showLinksInDashboard
+        };
       default:
         return state
     }

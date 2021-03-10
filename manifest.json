@@ -1,9 +1,14 @@
 {
-    "manifest_version": 2,
-    "name": "Tabsolute",
-    "description": "A solution to your boring new tabs",
-    "version": "1.0.1",
-    "chrome_url_overrides" : {
-        "newtab": "index.html"
-    }
+  "manifest_version": 2,
+  "name": "Tabsolute",
+  "description": "A solution to your boring new tabs",
+  "version": "1.0.2",
+  "icons": {
+      "48": "tabsolutelogo2(2).png"
+  },
+  "content_security_policy": "script-src 'self' https://kit.fontawesome.com/dbda73862f.js; object-src 'self'",
+  "permissions": [],
+  "chrome_url_overrides" : {
+      "newtab": "index.html"
+  }
 }

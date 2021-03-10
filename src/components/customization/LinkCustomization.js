@@ -1,7 +1,7 @@
 import '../../App.css';
 import React from 'react';
 import { connect } from 'react-redux';
-import { addLinkTile, deleteLinkTile, updateLinkTile } from '../../actions/linkTileActions';
+import { addLinkTile, deleteLinkTile, updateLinkTile, toggleLinksOnDashboard } from '../../actions/linkTileActions';
 
 class LinkCustomization extends React.Component {
     render() {
@@ -129,6 +129,10 @@ class LinkCustomization extends React.Component {
                         )
                     })}
                 </div>
+                <div style={{margin: '0px 0px 10px 30px', color: 'white'}}>
+                    <input type="checkbox" id="showlinks" name="showlinks" checked={this.props.linkTileDetails.showLinksInDashboard} onChange={this.props.toggleLinksOnDashboard} />
+                    <label for="showlinks">Show in Dashboard View</label>
+                </div>
             </div>
         )
     }
@@ -140,4 +144,4 @@ function mapStateToProps(state, ownProps) {
     }
 }
 
-export default connect(mapStateToProps, { addLinkTile, deleteLinkTile, updateLinkTile })(LinkCustomization);
+export default connect(mapStateToProps, { addLinkTile, deleteLinkTile, updateLinkTile, toggleLinksOnDashboard })(LinkCustomization);

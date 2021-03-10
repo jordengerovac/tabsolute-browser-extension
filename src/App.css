@@ -89,6 +89,18 @@ a {
   text-decoration: none;
 }
 
+.dashboardLinks:hover {
+  text-decoration: underline;
+}
+
+.flexLinks {
+  flex-wrap: wrap;
+}
+
+.flexLinks div {
+  flex: 0 0 25%;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   #settingsIcon:hover {
     animation: Settings-icon-spin infinite 3s linear;

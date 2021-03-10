@@ -71,6 +71,17 @@ class DashboardView extends React.Component {
                   return(<Quote widget={widget} />)
                 }
               })}
+              <div className="flexLinks" style={{display: 'flex', justifyContent: 'center', minWidth: '500px'}}>
+                {this.props.linkTileDetails.showLinksInDashboard ? 
+                  this.props.linkTileDetails.tiles.map((tile, index) => {
+                    return (
+                      <div>
+                        <p style={{margin: '5px', display: 'flex-end'}}><a className="dashboardLinks" href={tile.value} style={{color: 'white', fontSize: '20px'}}>{tile.name}</a></p>
+                      </div>
+                    )
+                  }) : null
+                }
+              </div>
             </div>
             <div style={{position: 'absolute', bottom: '0px'}}>
               <MuiThemeProvider theme={theme}>
@@ -97,7 +108,8 @@ function mapStateToProps(state, ownProps) {
   return {
     photoDetails: state.photoDetails,
     widgetDetails: state.widgetDetails,
-    viewDetails: state.viewDetails
+    viewDetails: state.viewDetails,
+    linkTileDetails: state.linkTileDetails
   }
 }
 
