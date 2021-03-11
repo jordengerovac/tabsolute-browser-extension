@@ -23,7 +23,7 @@ class AddWidget extends React.Component {
                             <option value="Weather">Weather</option>
                             <option value="Audio">Audio</option>
                         </select>
-                        <button type="submit" style={{backgroundColor: '#0bb508', border: 'none', borderRadius: '10%', fontSize: '15px', margin: '2px 0px 0px 18px', color: 'white', height: '25px', width: '25px', paddingBottom: '2px', cursor: 'pointer'}}>+</button>
+                        <button type="submit" style={{backgroundColor: '#0bb508', border: 'none', borderRadius: '10%', fontSize: '15px', margin: '2px 0px 0px 18px', color: 'white', height: '25px', width: '25px', padding: '0px 0px 2px 1px', cursor: 'pointer'}}>+</button>
                     </div>
                 </form>
             </div>

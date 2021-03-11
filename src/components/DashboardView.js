@@ -71,13 +71,13 @@ class DashboardView extends React.Component {
                   return(<Quote widget={widget} />)
                 }
               })}
-              <div className="flexLinks" style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center'}}>
+              <div className="flexLinks" style={{display: 'flex', justifyContent: 'center', flexWrap: 'wrap'}}>
                 {this.props.linkTileDetails.showLinksInDashboard ? 
-                  this.props.linkTileDetails.tiles.map((tile, index) => {
+                  this.props.linkTileDetails.tiles.map((tile) => {
                     return (
-                      <div style={{display: 'flex', justifyContent: 'center', width: '150px'}}>
+                      <div className="quickLink" style={{display: 'flex', justifyContent: 'space-between'}}>
                         <i style={{fontSize: '30px'}} className={tile.icon}></i>
-                        <a className="dashboardLinks" href={tile.value} style={{color: 'white', fontSize: '20px'}}><p style={{margin: '5px 25px 5px 5px', display: 'flex-end'}}>{tile.name}</p></a>
+                        <a className="dashboardLinks" href={tile.value} style={{color: 'white', fontSize: '20px'}}><p style={{margin: '5px 25px 5px 5px'}}>{tile.name}</p></a>
                       </div>
                     )
                   }) : null

@@ -93,9 +93,12 @@ a {
   text-decoration: underline;
 }
 
-.flexLinks {
-  flex-wrap: wrap;
+/*
+.flexLinks > div {
+  flex: 0 0 25%;
 }
+*/
+
 
 @media (prefers-reduced-motion: no-preference) {
   #settingsIcon:hover {
