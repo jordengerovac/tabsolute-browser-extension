@@ -98,7 +98,7 @@ a {
 }
 
 .flexLinks div {
-  flex: 0 0 25%;
+  flex: 0 0 20%;
 }
 
 @media (prefers-reduced-motion: no-preference) {

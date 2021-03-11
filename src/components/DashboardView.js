@@ -75,8 +75,9 @@ class DashboardView extends React.Component {
                 {this.props.linkTileDetails.showLinksInDashboard ? 
                   this.props.linkTileDetails.tiles.map((tile, index) => {
                     return (
-                      <div>
-                        <p style={{margin: '5px', display: 'flex-end'}}><a className="dashboardLinks" href={tile.value} style={{color: 'white', fontSize: '20px'}}>{tile.name}</a></p>
+                      <div style={{display: 'flex'}}>
+                        <i style={{fontSize: '30px'}} className={tile.icon}></i>
+                        <p style={{margin: '5px 25px 5px 5px', display: 'flex-end'}}><a className="dashboardLinks" href={tile.value} style={{color: 'white', fontSize: '20px'}}>{tile.name}</a></p>
                       </div>
                     )
                   }) : null
