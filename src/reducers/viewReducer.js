@@ -1,10 +1,11 @@
-import { CHANGE_VIEW, CHANGE_BACKGROUND_COLOUR, CHANGE_FONT_COLOUR } from '../actions/types';
+import { CHANGE_VIEW, CHANGE_BACKGROUND_COLOUR, CHANGE_FONT_COLOUR, CHANGE_TILE_COLOUR } from '../actions/types';
 
 
 const initialState = {
     view: "dashboard",
     fontColour: 'white',
     backgroundColour: '#2D3339',
+    tileColour: '#1F2023',
     loading: true
 }
 
@@ -26,6 +27,11 @@ export default function(state = initialState, action) {
                 ...state,
                 fontColour: action.payload
             }
+            case CHANGE_TILE_COLOUR:
+                return {
+                    ...state,
+                    tileColour: action.payload
+                }
         default:
             return state;
     }

@@ -77,7 +77,7 @@ class DashboardView extends React.Component {
                     return (
                       <div className="quickLink" style={{display: 'flex', justifyContent: 'space-between'}}>
                         <i style={{fontSize: '30px'}} className={tile.icon}></i>
-                        <a className="dashboardLinks" href={tile.value} style={{color: 'white', fontSize: '20px'}}><p style={{margin: '5px 25px 5px 5px'}}>{tile.name}</p></a>
+                        <a className="dashboardLinks" href={tile.value} style={{color: this.props.viewDetails.fontColour, fontSize: '20px'}}><p style={{margin: '5px 25px 5px 5px'}}>{tile.name}</p></a>
                       </div>
                     )
                   }) : null

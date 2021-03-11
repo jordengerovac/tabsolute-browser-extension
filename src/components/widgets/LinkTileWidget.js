@@ -23,7 +23,7 @@ class LinkTileWidget extends React.Component {
                 <div style={{textAlign: 'left', margin: '0px 10px 10px 0px', minHeight: '10px'}}>
                     <p style={{float: 'left', color: 'white', fontWeight: 'bolder'}}>Link Tile Options</p>
                     <div style={{float: 'right'}}>
-                        <i onClick={this.toggleDisplaySettings} id="linkWidget" style={{color: 'white', cursor: 'pointer', margin: '0px 5px 0px 5px'}} class="fas fa-wrench"></i>
+                        <i onClick={this.toggleDisplaySettings} id="linkWidget" style={{color: 'lightgrey', cursor: 'pointer', margin: '0px 5px 0px 5px'}} class="fas fa-wrench"></i>
                     </div>
                 </div>
                 {this.state.displaySettingsVisible ? <LinkCustomization tiles={this.props.linkTileDetails.tiles} /> : null}

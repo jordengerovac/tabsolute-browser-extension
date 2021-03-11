@@ -2,7 +2,7 @@ import '../App.css';
 import React from 'react';
 import { connect } from 'react-redux';
 import ViewType from './ViewType';
-import { CHANGE_BACKGROUND_COLOUR, CHANGE_FONT_COLOUR } from '../actions/types';
+import { CHANGE_BACKGROUND_COLOUR, CHANGE_FONT_COLOUR, CHANGE_TILE_COLOUR } from '../actions/types';
 import store from '../store';
 
 class DisplaySection extends React.Component {
@@ -18,6 +18,12 @@ class DisplaySection extends React.Component {
             else if (event.target.name === "font") {
                 payload = {
                     type: CHANGE_FONT_COLOUR,
+                    payload: event.target.value
+                }
+            }
+            else if (event.target.name === "tile") {
+                payload = {
+                    type: CHANGE_TILE_COLOUR,
                     payload: event.target.value
                 }
             }
@@ -37,9 +43,13 @@ class DisplaySection extends React.Component {
                                 <p style={{color: 'white', fontSize: '15px', margin: '0px 0px 5px 20px'}}>Background Colour</p>
                                 <input type="text" defaultValue={this.props.viewDetails.backgroundColour} name="background" placeholder="Colour / Hex colour code (ex. #2D3339)" style={{width: '220px', fontSize: '12px'}} onKeyPress={this.updateDisplay}></input>
                             </div>
-                            <div>
+                            <div style={{marginBottom: '10px'}}>
                                 <p style={{color: 'white', fontSize: '15px', margin: '0px 0px 5px 20px'}}>Font Colour</p>
-                                <input type="text" defaultValue={this.props.viewDetails.fontColour} name="font" placeholder="Colour / Hex colour code (ex. #2D3339)" style={{width: '220px', fontSize: '12px'}} onKeyPress={this.updateDisplay}></input>
+                                <input type="text" defaultValue={this.props.viewDetails.fontColour} name="font" placeholder="Colour / Hex colour code (ex. white)" style={{width: '220px', fontSize: '12px'}} onKeyPress={this.updateDisplay}></input>
+                            </div>
+                            <div>
+                                <p style={{color: 'white', fontSize: '15px', margin: '0px 0px 5px 20px'}}>Link Tile Colour</p>
+                                <input type="text" defaultValue={this.props.viewDetails.tileColour} name="tile" placeholder="Colour / Hex colour code (ex. #1F2023)" style={{width: '220px', fontSize: '12px'}} onKeyPress={this.updateDisplay}></input>
                             </div>
                         </div>
                     </div>

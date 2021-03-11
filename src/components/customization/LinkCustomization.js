@@ -123,7 +123,7 @@ class LinkCustomization extends React.Component {
                                     </div>
                                 </div>
                                 <div style={{marginRight: '30px'}}>
-                                    <i style={{color: '#D42020', cursor: 'pointer', margin: '0px 0px 0px 25px'}} class="fas fa-trash-alt" onClick={this.props.deleteLinkTile} id={tile.id}></i>
+                                    <i style={{color: 'lightgrey', cursor: 'pointer', margin: '0px 0px 0px 25px'}} class="fas fa-trash-alt" onClick={this.props.deleteLinkTile} id={tile.id}></i>
                                 </div>
                             </div>
                         )
