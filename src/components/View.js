@@ -24,7 +24,7 @@ class View extends React.Component {
   render(){
     if ((this.state.prevURL !== this.props.photoDetails.currentPhoto.urls.regular) || this.props.photoDetails.firstFetch === 1) {
       return (
-          <div style={{width: '100vw', height: '100vh', backgroundColor: this.props.viewDetails.backgroundColour}}>
+          <div style={{width: '100vw', height: '100vh', backgroundColor: this.props.viewDetails.backgroundColour, fontFamily: this.props.viewDetails.fontFamily}}>
             {this.props.widgetDetails.widgets.map((widget) => {
               if (widget.type === "Audio") {
                 return(<div><Audio widget={widget} /></div>)

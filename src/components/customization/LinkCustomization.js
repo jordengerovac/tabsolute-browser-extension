@@ -7,76 +7,60 @@ class LinkCustomization extends React.Component {
     render() {
         const iconMap = [
             {
-                key: "Twitter",
-                value: "fab fa-twitter"
-            },
-            {
-                key: "Facebook",
-                value: "fab fa-facebook"
-            },
-            {
-                key: "YouTube",
-                value: "fab fa-youtube"
-            },
-            {
-                key: "Google",
-                value: "fab fa-google"
-            },
-            {
                 key: "Apple",
                 value: "fab fa-apple"
-            },
-            {
-                key: "GitHub",
-                value: "fab fa-github"
-            },
-            {
-                key: "Link",
-                value: "fas fa-link"
-            },
-            {
-                key: "TV",
-                value: "fas fa-tv"
-            },
-            {
-                key: "Wifi",
-                value: "fas fa-wifi"
-            },
-            {
-                key: "Briefcase",
-                value: "fas fa-briefcase"
             },
             {
                 key: "Bacon",
                 value: "fas fa-bacon"
             },
             {
-                key: "Smile",
-                value: "fas fa-smile"
+                key: "Book",
+                value: "fas fa-book"
             },
             {
-                key: "Envelope",
-                value: "fas fa-envelope"
+                key: "Bookmark",
+                value: "fas fa-bookmark"
+            },
+            {
+                key: "Briefcase",
+                value: "fas fa-briefcase"
             },
             {
                 key: "Camera",
                 value: "fas fa-camera"
             },
             {
-                key: "Book",
-                value: "fas fa-book"
-            },
-            {
                 key: "Cloud",
                 value: "fas fa-cloud"
             },
             {
-                key: "Music",
-                value: "fas fa-music"
-            },
-            {
                 key: "Compass",
                 value: "fas fa-compass"
+            },
+            {
+                key: "Envelope",
+                value: "fas fa-envelope"
+            },
+            {
+                key: "Facebook",
+                value: "fab fa-facebook"
+            },
+            {
+                key: "GitHub",
+                value: "fab fa-github"
+            },
+            {
+                key: "Google",
+                value: "fab fa-google"
+            },
+            {
+                key: "Link",
+                value: "fas fa-link"
+            },
+            {
+                key: "Music",
+                value: "fas fa-music"
             },
             {
                 key: "Plane",
@@ -87,8 +71,24 @@ class LinkCustomization extends React.Component {
                 value: "fas fa-shopping-cart"
             },
             {
-                key: "Bookmark",
-                value: "fas fa-bookmark"
+                key: "Smile",
+                value: "fas fa-smile"
+            },
+            {
+                key: "TV",
+                value: "fas fa-tv"
+            },
+            {
+                key: "Twitter",
+                value: "fab fa-twitter"
+            },
+            {
+                key: "Wifi",
+                value: "fas fa-wifi"
+            },
+            {
+                key: "YouTube",
+                value: "fab fa-youtube"
             }
         ];
         
