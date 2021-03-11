@@ -32,7 +32,7 @@ export default function(state = initialState, action) {
         var newLinkTile = {}
         newLinkTile = {
           id: uuid(),
-          name: "New Link Tile",
+          name: "Link",
           value: "https://www.google.com",
           icon: "fas fa-link"
         }

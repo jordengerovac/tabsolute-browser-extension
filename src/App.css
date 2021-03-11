@@ -97,10 +97,6 @@ a {
   flex-wrap: wrap;
 }
 
-.flexLinks div {
-  flex: 0 0 20%;
-}
-
 @media (prefers-reduced-motion: no-preference) {
   #settingsIcon:hover {
     animation: Settings-icon-spin infinite 3s linear;
