@@ -22,7 +22,7 @@ class SettingsBar extends React.Component {
 
     render() {
         return(
-            <div style={{zIndex: '200'}}>
+            <div style={{zIndex: '200', fontFamily: 'IBM Plex Sans'}}>
                 {this.state.settingsVisible ? 
                 <div style={{display: 'flex', height: '101vh', margin: '0', padding: '0', position: 'fixed', overflowX: 'hidden', zIndex: '100'}}>
                     <div style={{height: '99vh', width: '320px', backgroundColor: '#1F2023', borderRadius: '0px 10px 10px 0px', textAlign: 'center', padding: '5px', borderRight: '1px solid #30363D', overflow: 'scroll'}}>

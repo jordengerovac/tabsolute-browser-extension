@@ -4,6 +4,10 @@
 }
 */
 
+.settingsBar {
+  color: red !important;
+}
+
 .centered {
   position: fixed;
   top: 50%;
