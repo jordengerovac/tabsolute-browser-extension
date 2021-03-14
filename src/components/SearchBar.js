@@ -38,8 +38,8 @@ class SearchBar extends React.Component {
     render() {
         return (
             <div>
-                <input className="search-bar" style={{marginTop: '10px', border: '1px solid ' + this.props.viewDetails.fontColour, width: '475px', fontSize: this.props.widget.display.font + 'px', height: this.props.widget.display.font + 'px', backgroundColor: 'rgba(0,0,0,0.1)', padding: '10px', borderRadius: '100px', color: this.props.viewDetails.fontColour}} type="text" value={this.props.widget.value} onChange={this.handleChange} id={this.props.widget.id} value={this.state.searchText} onKeyPress={this.executeSearch}></input>
-                <i style={{color: 'white', margin: '0px 0px 0px -15px', fontSize: this.props.widget.display.font + 'px'}} className="fas fa-search"></i>
+                <input className="search-bar" style={{marginTop: '10px', border: '1px solid ' + this.props.viewDetails.fontColour, width: '475px', fontSize: this.props.widget.display.font + 'px', height: this.props.widget.display.font + 'px', backgroundColor: 'rgba(0,0,0,0.1)', padding: '10px', borderRadius: '100px', color: this.props.viewDetails.fontColour, fontFamily: 'inherit'}} type="text" value={this.props.widget.value} onChange={this.handleChange} id={this.props.widget.id} value={this.state.searchText} onKeyPress={this.executeSearch}></input>
+                <i style={{color: this.props.viewDetails.fontColour, margin: '0px 0px 0px -15px', fontSize: this.props.widget.display.font + 'px'}} className="fas fa-search"></i>
             </div>
         )
     }
