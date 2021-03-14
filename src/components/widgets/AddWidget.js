@@ -1,6 +1,5 @@
 import React from 'react';
 import { addWidget } from '../../actions/widgetActions';
-import { addLinkTile } from '../../actions/linkTileActions';
 import { connect } from 'react-redux';
 
 class AddWidget extends React.Component {

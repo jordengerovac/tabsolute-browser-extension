@@ -1,8 +1,56 @@
-/*
-* {
-  font-family: 'IBM Plex Sans', sans-serif;
+.fade-out {
+  opacity: 0;
+  animation: fadeOut ease-out 1s;
+  -webkit-animation: fadeOut ease-out 1s;
+  -moz-animation: fadeOut ease-out 1s;
+  -o-animation: fadeOut ease-out 1s;
+  -ms-animation: fadeOut ease-out 1s;
 }
-*/
+
+@keyframes fadeOut {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
+}
+
+@-moz-keyframes fadeOut {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
+}
+
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
+}
+
+@-o-keyframes fadeOut {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
+}
+
+@-ms-keyframes fadeOut {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
+}
 
 .settingsBar {
   color: red !important;

@@ -7,6 +7,7 @@ import store from '../store';
 
 class DisplaySection extends React.Component {
     updateDisplay = (event) => {
+        var payload;
         if (event.target.name === "fontFamily") {
             payload = {
                 type: CHANGE_FONT_FAMILY,
@@ -16,7 +17,7 @@ class DisplaySection extends React.Component {
         }
         else {
             if (event.key === "Enter" ) {
-                var payload = {};
+                payload = {};
                 if (event.target.name === "background") {
                     payload = {
                         type: CHANGE_BACKGROUND_COLOUR,
@@ -97,7 +98,7 @@ class DisplaySection extends React.Component {
 
         return(
             <div>
-                <h4 style={{textAlign: 'left', color: 'white', margin: '15px', margin: '30px 0px 10px 15px'}}>DISPLAY</h4>
+                <h4 style={{textAlign: 'left', color: 'white', margin: '30px 0px 10px 15px'}}>DISPLAY</h4>
                 <div style={{backgroundColor: '#30363D', padding: '10px', margin: '0px 10px 10px 10px', borderRadius: '7px'}}>
                     <div style={{textAlign: 'left', margin: '0px 10px 10px 0px'}}>
                         <ViewType />

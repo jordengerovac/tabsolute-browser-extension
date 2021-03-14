@@ -2,13 +2,16 @@ import '../App.css';
 import React from 'react';
 import { updateWidget } from '../actions/widgetActions';
 import { connect } from 'react-redux';
+import store from '../store';
+import { UPDATE_QUOTE_WIDGET } from '../actions/types';
 
 class Quote extends React.Component {
     constructor() {
         super();
         this.state = {
             quoteText: "",
-            quoteAuthor: ""
+            quoteAuthor: "",
+            day: ""
         }
     }
     
@@ -37,15 +40,22 @@ class Quote extends React.Component {
           .then(res => res.json())
           .then(
           (result) => {
-            console.log(result);
             var text = result.quotes[0].text;
-            var author = result.quotes[0].author
+            var author = result.quotes[0].author;
+            var day = new Date().getDay();
             if (author === null)
                 author = "Unknown";
+            var value = text + ":@:" + author + ":@:" + day
             this.setState({
                 quoteText: text,
                 quoteAuthor: author
             })
+            var payload = {
+                type: UPDATE_QUOTE_WIDGET,
+                payload: value,
+                id: this.props.widget.id
+            }
+            store.dispatch(payload);
         })
         .catch(function(error) {
             console.log(error);
@@ -53,15 +63,16 @@ class Quote extends React.Component {
     }
 
     componentDidMount() {
-        this.getRandomQuoteTwo();
-    }
-      
+        if (parseInt(this.props.widget.value.split(":@:")[2]) !== new Date().getDay()) {
+            this.getRandomQuoteTwo();
+        }
+    } 
 
     render() {
         return (
             <div>
-                <p style={{fontSize: '20px'}}>{this.state.quoteText}</p>
-                <p style={{fontSize: '20px'}}>- {this.state.quoteAuthor}</p>
+                <p style={{fontSize: '20px'}}>{this.props.widget.value.split(":@:")[0]}</p>
+                <p style={{fontSize: '20px'}}>- {this.props.widget.value.split(":@:")[1]}</p>
             </div>
         )
     }

@@ -105,11 +105,11 @@ class LinkCustomization extends React.Component {
                                 <div style={{float: 'left'}}>
                                     <div>
                                         <p>Name</p>
-                                        <input defaultValue={tile.name} name="name" onChange={this.props.updateLinkTile} id={tile.id} style={{width: '140px', fontSize: '12px'}}></input>
+                                        <input value={tile.name} name="name" onChange={this.props.updateLinkTile} id={tile.id} style={{width: '140px', fontSize: '12px'}}></input>
                                     </div>
                                     <div>
                                         <p>URL</p>
-                                        <input defaultValue={tile.value} name="value" onChange={this.props.updateLinkTile} id={tile.id} style={{width: '140px', fontSize: '12px'}}></input>
+                                        <input value={tile.value} name="value" onChange={this.props.updateLinkTile} id={tile.id} style={{width: '140px', fontSize: '12px'}}></input>
                                     </div>
                                     <div>
                                         <p>Icon</p>
@@ -129,7 +129,7 @@ class LinkCustomization extends React.Component {
                         )
                     })}
                 </div>
-                <div style={{margin: '0px 0px 10px 30px', color: 'white'}}>
+                <div style={{margin: '0px 0px 10px 0px', color: 'white', justifyContent: 'center', display: 'flex'}}>
                     <input type="checkbox" id="showlinks" name="showlinks" checked={this.props.linkTileDetails.showLinksInDashboard} onChange={this.props.toggleLinksOnDashboard} />
                     <label for="showlinks">Show in Dashboard View</label>
                 </div>

@@ -32,6 +32,7 @@ class DashboardView extends React.Component {
       }
     }
 
+    
     // Firefox 1.0+
     const isFirefox = typeof InstallTrigger !== 'undefined';
     if (isFirefox && this.props.photoDetails.photoVisible) {
@@ -40,14 +41,14 @@ class DashboardView extends React.Component {
     }
     
     return (
-      <div style={{height: '100vh', width: '100vw', backgroundColor: 'black'}}>
+      <div style={{height: '100vh', width: '100vw'}}>
         <ProgressiveImage
           src={currentPhotoURLFull}
           placeholder={currentPhotoURLRegular}
-          style={{height: '100vh', width: '100vw', backgroundColor: 'black'}}
         >
           {src => 
-          <div className="dashboard" id="dashboard" style={{backgroundImage: 'url(' + src + ')', width: '100vw', height: '100vh', backgroundSize: 'cover', margin: '0', padding: '0', backgroundRepeat: 'no-repeat', backgroundPosition: '50% 50%', backgroundColor: this.props.viewDetails.backgroundColour}}>
+          <div className="dashboard" id="dashboard" style={{backgroundImage: 'url(' + src + ')', width: '100vw', height: '100vh', backgroundSize: 'cover', margin: '0', padding: '0', backgroundRepeat: 'no-repeat', backgroundPosition: '50% 50%', backgroundColor: this.props.photoDetails.photoVisible ? 'black' : this.props.viewDetails.backgroundColour}}>
+            <div className='fade-out' style={{backgroundColor: 'black', height: '100vh', width: '100vw'}}></div>
             <div>
               <div style={{float: 'left'}}>
                 <SettingsBar />

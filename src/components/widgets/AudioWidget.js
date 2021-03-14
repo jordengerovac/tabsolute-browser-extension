@@ -1,5 +1,5 @@
 import React from 'react';
-import { updateWidget, deleteWidget } from '../../actions/widgetActions';
+import { updateWidget, deleteWidget, moveWidget } from '../../actions/widgetActions';
 import { connect } from 'react-redux';
 
 class AudioWidget extends React.Component {
@@ -9,10 +9,12 @@ class AudioWidget extends React.Component {
                 <div style={{textAlign: 'left', margin: '0px 10px 20px 0px'}}>
                     <p style={{float: 'left', color: 'white', fontWeight: 'bolder'}}>{this.props.widget.type}</p>
                     <div style={{float: 'right'}}>
+                        <i onClick={this.props.moveWidget} id={this.props.widget.id} style={{color: 'lightgrey', cursor: 'pointer', margin: '0px 5px 0px 5px'}} className="fas fa-arrow-up"></i>
+                        <i onClick={this.props.moveWidget} id={this.props.widget.id} style={{color: 'lightgrey', cursor: 'pointer', margin: '0px 5px 0px 5px'}} className="fas fa-arrow-down"></i>
                         <i style={{color: 'lightgrey', cursor: 'pointer', margin: '0px 0px 0px 5px'}} class="fas fa-trash-alt" onClick={this.props.deleteWidget} id={this.props.widget.id}></i>
                     </div>
                 </div>
-                <select onChange={this.props.updateWidget} ref="addWidget" name="widgets" id="widgets" style={{border: 'none', height: '20px', width: '120px', margin: '3px 0px 0px 0px'}} id={this.props.widget.id}>
+                <select onChange={this.props.updateWidget} ref="addWidget" name="widgets" id="widgets" style={{border: 'none', height: '20px', width: '120px', margin: '10px 0px 0px -20px'}} id={this.props.widget.id}>
                     <option value="Adventure" selected={this.props.widget.value === "Adventure"}>Adventure</option>
                     <option value="New Dawn" selected={this.props.widget.value === "New Dawn"}>New Dawn</option>
                     <option value="Once Again" selected={this.props.widget.value === "Once Again"}>Once Again</option>
@@ -32,4 +34,4 @@ function mapStateToProps(state, ownProps) {
     }
 }
 
-export default connect(mapStateToProps, { updateWidget, deleteWidget })(AudioWidget);
+export default connect(mapStateToProps, { updateWidget, deleteWidget, moveWidget })(AudioWidget);

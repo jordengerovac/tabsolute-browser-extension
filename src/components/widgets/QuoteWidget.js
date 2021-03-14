@@ -1,6 +1,6 @@
 import '../../App.css';
 import React from 'react';
-import { deleteWidget } from '../../actions/widgetActions';
+import { deleteWidget, moveWidget } from '../../actions/widgetActions';
 import { connect } from 'react-redux';
 import WidgetCustomization from '../customization/WidgetCustomization';
 
@@ -24,12 +24,14 @@ class QuoteWidget extends React.Component {
                 <div style={{textAlign: 'left', margin: '0px 10px 20px 0px'}}>
                     <p style={{float: 'left', color: 'white', fontWeight: 'bolder'}}>{this.props.widget.type}</p>
                     <div style={{float: 'right'}}>
+                        <i onClick={this.props.moveWidget} id={this.props.widget.id} style={{color: 'lightgrey', cursor: 'pointer', margin: '0px 5px 0px 5px'}} className="fas fa-arrow-up"></i>
+                        <i onClick={this.props.moveWidget} id={this.props.widget.id} style={{color: 'lightgrey', cursor: 'pointer', margin: '0px 5px 0px 5px'}} className="fas fa-arrow-down"></i>
                         <i onClick={this.toggleDisplaySettings} id={this.props.widget.id} style={{color: 'lightgrey', cursor: 'pointer', margin: '0px 5px 0px 5px'}} class="fas fa-wrench"></i>
                         <i style={{color: 'lightgrey', cursor: 'pointer', margin: '0px 0px 0px 5px'}} class="fas fa-trash-alt" onClick={this.props.deleteWidget} id={this.props.widget.id}></i>
                     </div>
                 </div>
                 {/*<p style={{color: 'white', fontSize: '11px', marginTop: '25px'}}>Quotes are retrieved from https://type.fit/api/quotes</p>*/}
-                <p style={{color: 'white', fontSize: '11px', marginTop: '25px'}}>Quotes retrieved from https://goquotes.docs.apiary.io</p>
+                <p style={{color: 'white', fontSize: '11px', margin: '25px 0px 0px -10px'}}>Quote of the day retrieved from https://goquotes.docs.apiary.io</p>
                 {this.state.displaySettingsVisible ? <WidgetCustomization widget={this.props.widget} /> : null}
             </div>
         )
@@ -42,4 +44,4 @@ function mapStateToProps(state, ownProps) {
     }
 }
 
-export default connect(mapStateToProps, { deleteWidget })(QuoteWidget);
+export default connect(mapStateToProps, { deleteWidget, moveWidget })(QuoteWidget);

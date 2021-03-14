@@ -1,4 +1,4 @@
-import { ADD_WIDGET, DELETE_WIDGET, UPDATE_WEATHER_WIDGET, UPDATE_WIDGET, UPDATE_WIDGET_FONT } from '../actions/types';
+import { ADD_WIDGET, DELETE_WIDGET, MOVE_WIDGET, UPDATE_WEATHER_WIDGET, UPDATE_WIDGET, UPDATE_WIDGET_FONT, UPDATE_QUOTE_WIDGET } from '../actions/types';
 import { v4 as uuid } from 'uuid';
 
 const initialState = {
@@ -46,7 +46,7 @@ export default function(state = initialState, action) {
             newWidget = {
               id: uuid(),
               type: "Time",
-              value: "12",
+              value: "24",
               display: {
                 customizationVisible: "false",
                 font: "50",
@@ -83,6 +83,7 @@ export default function(state = initialState, action) {
               id: uuid(),
               type: "Quote",
               value: "",
+              dayQuoteReceived: "",
               display: {
                 customizationVisible: "false",
                 font: "30",
@@ -133,7 +134,54 @@ export default function(state = initialState, action) {
             ...state,
             widgets: newUpdateWidgetFontState
           }
+          case UPDATE_QUOTE_WIDGET:
+          var newUpdateQuoteState = state.widgets.map(widget => {
+            if (widget.id === action.id) {
+              widget.value = action.payload
+            }
+            return widget;
+          })
+          return {
+            ...state,
+            widgets: newUpdateQuoteState
+          }
+        case MOVE_WIDGET:
+          var swappedWidgetState;
+          if (action.payload.target.className === "fas fa-arrow-down") {
+            if (state.widgets.length > 1 && action.payload.target.id !== state.widgets[state.widgets.length-1].id) {
+              for(var i = 0; i < state.widgets.length; i++) {
+                if (state.widgets[i].id === action.payload.target.id) {
+                  swappedWidgetState = immutableSwap(state.widgets, i, i+1);
+                }
+              }
+              return {
+                ...state,
+                widgets: swappedWidgetState
+              }
+            }
+          }
+          else if (action.payload.target.className === "fas fa-arrow-up") {
+            if (state.widgets.length > 1 && action.payload.target.id !== state.widgets[0].id) {
+              for(var j = 0; j < state.widgets.length; j++) {
+                if (state.widgets[j].id === action.payload.target.id) {
+                  swappedWidgetState = immutableSwap(state.widgets, j, j-1);
+                }
+              }
+              return {
+                ...state,
+                widgets: swappedWidgetState
+              }
+            }
+          }
+          return state;
         default:
           return state;
     }
+}
+
+const immutableSwap = (widgets, firstIndex, secondIndex) => {
+  const result = [...widgets];
+  [result[firstIndex], result[secondIndex]] = [result[secondIndex], result[firstIndex]];
+  return result;
+
 }

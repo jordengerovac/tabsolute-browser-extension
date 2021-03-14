@@ -37,13 +37,14 @@ class LinkTileView extends React.Component {
     }
 
     return (
-      <div style={{height: '100vh'}}>
+      <div style={{height: '100vh', width: '100vw'}}>
         <ProgressiveImage
           src={currentPhotoURLFull}
           placeholder={currentPhotoURLRegular}
         >
         {src =>
-        <div className="dashboard" style={{backgroundImage: 'url(' + src + ')', width: '100vw', height: '100vh', backgroundSize: 'cover', margin: '0', padding: '0', backgroundRepeat: 'no-repeat', backgroundPosition: '50% 50%', backgroundColor: this.props.viewDetails.backgroundColour}}>
+        <div className="dashboard" style={{backgroundImage: 'url(' + src + ')', width: '100vw', height: '100vh', backgroundSize: 'cover', margin: '0', padding: '0', backgroundRepeat: 'no-repeat', backgroundPosition: '50% 50%', backgroundColor: this.props.photoDetails.photoVisible ? 'black' : this.props.viewDetails.backgroundColour}}>
+          <div className='fade-out' style={{backgroundColor: 'black', height: '100vh', width: '100vw'}}></div>
           <SettingsBar />
           <div className="centered" style={{textAlign: 'center', display: 'flex', flexWrap: 'wrap', width: String(250 * 4) + 'px', justifyContent: 'center'}}>
             {this.props.linkTileDetails.tiles.map((tile) => {

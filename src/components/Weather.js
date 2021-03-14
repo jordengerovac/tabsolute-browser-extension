@@ -5,8 +5,11 @@ import { UPDATE_WEATHER_WIDGET } from '../actions/types';
 
 class Weather extends React.Component {
     componentDidMount() {
-        if (this.props.widget.value !== "")
-            this.getWeather();
+        if (this.props.widget.value !== "") {
+            if (parseInt(this.props.widget.value.split(":@:")[4]) !== new Date().getHours()) {
+                this.getWeather();
+            }
+        }
     }
 
     getWeather() {
@@ -19,7 +22,8 @@ class Weather extends React.Component {
             var temp_min = result.main.temp_min;
             var temp_max = result.main.temp_max;
             var clouds = result.weather[0].description;
-            var value = city + ":@:" + temp_min + ":@:" + temp_max + ":@:" + clouds;
+            var day = new Date().getHours();
+            var value = city + ":@:" + temp_min + ":@:" + temp_max + ":@:" + clouds + ":@:" + day;
             
             var payload = {
                 type: UPDATE_WEATHER_WIDGET,

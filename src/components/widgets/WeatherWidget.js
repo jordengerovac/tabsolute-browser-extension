@@ -1,6 +1,6 @@
 import '../../App.css';
 import React from 'react';
-import { deleteWidget } from '../../actions/widgetActions';
+import { deleteWidget, moveWidget } from '../../actions/widgetActions';
 import { connect } from 'react-redux';
 import store from '../../store';
 import { UPDATE_WEATHER_WIDGET } from '../../actions/types';
@@ -52,6 +52,8 @@ class WeatherWidget extends React.Component {
                 <div style={{textAlign: 'left', margin: '0px 10px 10px 0px'}}>
                     <p style={{float: 'left', color: 'white', fontWeight: 'bolder'}}>{this.props.widget.type}</p>
                     <div style={{float: 'right'}}>
+                        <i onClick={this.props.moveWidget} id={this.props.widget.id} style={{color: 'lightgrey', cursor: 'pointer', margin: '0px 5px 0px 5px'}} className="fas fa-arrow-up"></i>
+                        <i onClick={this.props.moveWidget} id={this.props.widget.id} style={{color: 'lightgrey', cursor: 'pointer', margin: '0px 5px 0px 5px'}} className="fas fa-arrow-down"></i>
                         <i onClick={this.toggleDisplaySettings} id={this.props.widget.id} style={{color: 'lightgrey', cursor: 'pointer', margin: '0px 5px 0px 5px'}} class="fas fa-wrench"></i>
                         <i style={{color: 'lightgrey', cursor: 'pointer', margin: '0px 0px 0px 5px'}} class="fas fa-trash-alt" onClick={this.props.deleteWidget} id={this.props.widget.id}></i>
                     </div>
@@ -69,4 +71,4 @@ function mapStateToProps(state, ownProps) {
     }
 }
 
-export default connect(mapStateToProps, { deleteWidget })(WeatherWidget);
+export default connect(mapStateToProps, { deleteWidget, moveWidget })(WeatherWidget);
