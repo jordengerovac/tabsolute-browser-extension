@@ -56,6 +56,18 @@
   color: red !important;
 }
 
+.search-bar:focus {
+  outline: none;
+}
+
+.centered-top {
+  position: fixed;
+  top: 0%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, 0%);
+}
+
 .centered {
   position: fixed;
   top: 50%;

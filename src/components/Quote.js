@@ -71,8 +71,8 @@ class Quote extends React.Component {
     render() {
         return (
             <div>
-                <p style={{fontSize: '20px'}}>{this.props.widget.value.split(":@:")[0]}</p>
-                <p style={{fontSize: '20px'}}>- {this.props.widget.value.split(":@:")[1]}</p>
+                <p style={{fontSize: this.props.widget.display.font + 'px'}}>{this.props.widget.value.split(":@:")[0]}</p>
+                <p style={{fontSize: this.props.widget.display.font + 'px'}}>- {this.props.widget.value.split(":@:")[1]}</p>
             </div>
         )
     }

@@ -83,10 +83,21 @@ export default function(state = initialState, action) {
               id: uuid(),
               type: "Quote",
               value: "",
-              dayQuoteReceived: "",
               display: {
                 customizationVisible: "false",
-                font: "30",
+                font: "20",
+                location: "center"
+              }
+            }
+          }
+          else if (action.payload === "Search Bar") {
+            newWidget = {
+              id: uuid(),
+              type: "Search Bar",
+              value: "Google",
+              display: {
+                customizationVisible: "false",
+                font: "15",
                 location: "center"
               }
             }

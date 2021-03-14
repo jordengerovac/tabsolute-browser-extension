@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Tabsolute",
   "description": "A solution to your boring new tabs",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "icons": {
       "128": "tabsolutelogo2.png"
   },

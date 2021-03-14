@@ -14,7 +14,7 @@ class AudioWidget extends React.Component {
                         <i style={{color: 'lightgrey', cursor: 'pointer', margin: '0px 0px 0px 5px'}} class="fas fa-trash-alt" onClick={this.props.deleteWidget} id={this.props.widget.id}></i>
                     </div>
                 </div>
-                <select onChange={this.props.updateWidget} ref="addWidget" name="widgets" id="widgets" style={{border: 'none', height: '20px', width: '120px', margin: '10px 0px 0px -20px'}} id={this.props.widget.id}>
+                <select onChange={this.props.updateWidget} style={{border: 'none', height: '20px', width: '120px', margin: '10px 0px 0px -20px'}} id={this.props.widget.id}>
                     <option value="Adventure" selected={this.props.widget.value === "Adventure"}>Adventure</option>
                     <option value="New Dawn" selected={this.props.widget.value === "New Dawn"}>New Dawn</option>
                     <option value="Once Again" selected={this.props.widget.value === "Once Again"}>Once Again</option>

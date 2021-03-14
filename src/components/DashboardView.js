@@ -11,6 +11,7 @@ import { connect } from 'react-redux';
 import { togglePhoto } from '../actions/photoActions';
 import ProgressiveImage from 'react-progressive-graceful-image';
 import PhotoCredits from './PhotoCredits';
+import SearchBar from './SearchBar';
 
 class DashboardView extends React.Component {
   render() {
@@ -50,10 +51,16 @@ class DashboardView extends React.Component {
           <div className="dashboard" id="dashboard" style={{backgroundImage: 'url(' + src + ')', width: '100vw', height: '100vh', backgroundSize: 'cover', margin: '0', padding: '0', backgroundRepeat: 'no-repeat', backgroundPosition: '50% 50%', backgroundColor: this.props.photoDetails.photoVisible ? 'black' : this.props.viewDetails.backgroundColour}}>
             <div className='fade-out' style={{backgroundColor: 'black', height: '100vh', width: '100vw'}}></div>
             <div>
-              <div style={{float: 'left'}}>
+              <div>
                 <SettingsBar />
               </div>
-              <div style={{float:'right', color: this.props.viewDetails.fontColour}}>
+              <div className="centered-top" style={{position: 'absolute', textAlign: 'center'}}>
+              {this.props.widgetDetails.widgets.map((widget) => {
+                  if (widget.type === "Search Bar") 
+                    return (<SearchBar widget={widget} />)
+                })}
+              </div>
+              <div style={{color: this.props.viewDetails.fontColour, position: 'absolute', top: '0', right: '0'}}>
                 {this.props.widgetDetails.widgets.map((widget) => {
                   if (widget.type === "Weather") 
                     return (<Weather widget={widget} />)

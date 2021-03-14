@@ -7,6 +7,7 @@ import QuoteWidget from './widgets/QuoteWidget';
 import WeatherWidget from './widgets/WeatherWidget';
 import AddWidget from './widgets/AddWidget';
 import AudioWidget from './widgets/AudioWidget';
+import SearchBarWidget from './widgets/SearchBarWidget';
 
 class WidgetSection extends React.Component {
     render() {
@@ -38,6 +39,11 @@ class WidgetSection extends React.Component {
                     else if (widget.type === "Weather") {
                         return(
                             <WeatherWidget widget={widget} />
+                        )
+                    }
+                    else if (widget.type === "Search Bar") {
+                        return(
+                            <SearchBarWidget widget={widget} />
                         )
                     }
                 })}
