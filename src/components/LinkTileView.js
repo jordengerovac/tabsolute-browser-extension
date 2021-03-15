@@ -29,31 +29,36 @@ class LinkTileView extends React.Component {
       }
     }
 
+    /*
     // Firefox 1.0+
     const isFirefox = typeof InstallTrigger !== 'undefined';
     if (isFirefox && this.props.photoDetails.photoVisible) {
       currentPhotoURLFull = this.props.photoDetails.currentPhoto.urls.regular;
       currentPhotoURLRegular = "";
     }
+    */
 
     return (
-      <div style={{height: '100vh', width: '100vw'}}>
+      <div style={{height: '100vh', width: '100vw', overflow: 'hidden'}}>
         <ProgressiveImage
           src={currentPhotoURLFull}
           placeholder={currentPhotoURLRegular}
         >
         {src =>
-        <div className="dashboard" style={{backgroundImage: 'url(' + src + ')', width: '100vw', height: '100vh', backgroundSize: 'cover', margin: '0', padding: '0', backgroundRepeat: 'no-repeat', backgroundPosition: '50% 50%', backgroundColor: this.props.photoDetails.photoVisible ? 'black' : this.props.viewDetails.backgroundColour}}>
-          <div className='fade-out' style={{backgroundColor: 'black', height: '100vh', width: '100vw'}}></div>
-          <SettingsBar />
-          <div className="centered" style={{textAlign: 'center', display: 'flex', flexWrap: 'wrap', width: String(250 * 4) + 'px', justifyContent: 'center'}}>
+        <div className="dashboard" id="dashboard">
+          <img src={src} style={{width: '102vw', height: '102vh', objectFit: 'cover', margin: '0', padding: '0', backgroundRepeat: 'no-repeat', backgroundPosition: '50% 50%', backgroundColor: this.props.photoDetails.photoVisible ? 'black' : this.props.viewDetails.backgroundColour, zIndex: '0', position: 'relative', border: '0', overflow: 'hidden', top: '-5px', left: '-5px'}} />
+          <div className='fade-out' style={{backgroundColor: 'black', height: '100vh', width: '100vw', position: 'absolute', top: '0', left: '0', zIndex: '1'}}></div>
+          <div>
+            <SettingsBar />
+          </div>
+          <div className="centered" style={{textAlign: 'center', display: 'flex', flexWrap: 'wrap', width: String(250 * 4) + 'px', justifyContent: 'center', position: 'absolute', zIndex: '2'}}>
             {this.props.linkTileDetails.tiles.map((tile) => {
               return (
                 <LinkTile tile={tile} />
               )
             })}
           </div>
-          <div style={{position: 'absolute', bottom: '0px'}}>
+          <div style={{position: 'absolute', bottom: '0px', position: 'absolute', zIndex: '1'}}>
             <MuiThemeProvider theme={theme}>
               <Switch
                 checked={this.props.photoDetails.photoVisible}

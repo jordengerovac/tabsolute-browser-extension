@@ -33,28 +33,30 @@ class DashboardView extends React.Component {
       }
     }
 
-    
+    /*
     // Firefox 1.0+
     const isFirefox = typeof InstallTrigger !== 'undefined';
     if (isFirefox && this.props.photoDetails.photoVisible) {
       currentPhotoURLFull = this.props.photoDetails.currentPhoto.urls.regular;
       currentPhotoURLRegular = "";
     }
+    */
     
     return (
-      <div style={{height: '100vh', width: '100vw'}}>
+      <div style={{height: '100vh', width: '100vw', overflow: 'hidden'}}>
         <ProgressiveImage
           src={currentPhotoURLFull}
           placeholder={currentPhotoURLRegular}
         >
           {src => 
-          <div className="dashboard" id="dashboard" style={{backgroundImage: 'url(' + src + ')', width: '100vw', height: '100vh', backgroundSize: 'cover', margin: '0', padding: '0', backgroundRepeat: 'no-repeat', backgroundPosition: '50% 50%', backgroundColor: this.props.photoDetails.photoVisible ? 'black' : this.props.viewDetails.backgroundColour}}>
-            <div className='fade-out' style={{backgroundColor: 'black', height: '100vh', width: '100vw'}}></div>
+          <div className="dashboard" id="dashboard">
+            <img src={src} style={{width: '102vw', height: '102vh', objectFit: 'cover', margin: '0', padding: '0', backgroundRepeat: 'no-repeat', backgroundPosition: '50% 50%', backgroundColor: this.props.photoDetails.photoVisible ? 'black' : this.props.viewDetails.backgroundColour, zIndex: '0', position: 'relative', border: '0', overflow: 'hidden', top: '-5px', left: '-5px'}} />
+            <div className='fade-out' style={{backgroundColor: 'black', height: '100vh', width: '100vw', zIndex: '1', position: 'absolute', top: '0', left: '0'}}></div>
             <div>
               <div>
                 <SettingsBar />
               </div>
-              <div className="centered-top" style={{position: 'absolute', textAlign: 'center'}}>
+              <div className="centered-top" style={{position: 'absolute', textAlign: 'center', zIndex: '1', position: 'absolute'}}>
               {this.props.widgetDetails.widgets.map((widget) => {
                   if (widget.type === "Search Bar") 
                     return (<SearchBar widget={widget} />)
@@ -67,7 +69,7 @@ class DashboardView extends React.Component {
                 })}
               </div>
             </div>
-            <div className="centered" style={{textAlign: 'center', color: this.props.viewDetails.fontColour}}>
+            <div className="centered" style={{textAlign: 'center', color: this.props.viewDetails.fontColour, zIndex: '1', position: 'absolute'}}>
               {this.props.widgetDetails.widgets.map((widget) => {
                 if (widget.type === "Greeting") {
                   return(<Greeting widget={widget} />)
@@ -92,7 +94,7 @@ class DashboardView extends React.Component {
                 }
               </div>
             </div>
-            <div style={{position: 'absolute', bottom: '0px'}}>
+            <div style={{position: 'absolute', bottom: '0px', zIndex: '1', position: 'absolute'}}>
               <MuiThemeProvider theme={theme}>
                 <Switch
                   checked={this.props.photoDetails.photoVisible}
