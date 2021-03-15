@@ -27,10 +27,7 @@ class DashboardView extends React.Component {
     var currentPhotoURLRegular = this.props.photoDetails.currentPhoto.urls.regular;
     if (!this.props.photoDetails.loading) {
       currentPhotoURLFull = this.props.photoDetails.currentPhoto.urls.full;
-      if (!this.props.photoDetails.photoVisible) {
-        currentPhotoURLFull = "";
-        currentPhotoURLRegular = "";
-      }
+
     }
 
     /*
@@ -43,14 +40,14 @@ class DashboardView extends React.Component {
     */
     
     return (
-      <div style={{height: '100vh', width: '100vw', overflow: 'hidden'}}>
+      <div style={{height: '100vh', width: '100vw', overflow: 'hidden', backgroundColor: this.props.photoDetails.photoVisible ? 'black' : this.props.viewDetails.backgroundColour}}>
         <ProgressiveImage
           src={currentPhotoURLFull}
           placeholder={currentPhotoURLRegular}
         >
           {src => 
           <div className="dashboard" id="dashboard">
-            <img src={src} style={{width: '102vw', height: '102vh', objectFit: 'cover', margin: '0', padding: '0', backgroundRepeat: 'no-repeat', backgroundPosition: '50% 50%', backgroundColor: this.props.photoDetails.photoVisible ? 'black' : this.props.viewDetails.backgroundColour, zIndex: '0', position: 'relative', border: '0', overflow: 'hidden', top: '-5px', left: '-5px'}} />
+            <img src={src} style={{width: '100vw', height: '100vh', objectFit: 'cover', margin: '0', padding: '0', backgroundRepeat: 'no-repeat', backgroundPosition: '50% 50%', backgroundColor: this.props.photoDetails.photoVisible ? 'black' : this.props.viewDetails.backgroundColour, zIndex: '0', position: 'relative', border: '0', overflow: 'hidden', display: this.props.photoDetails.photoVisible ? 'block' : 'none'}} />
             <div className='fade-out' style={{backgroundColor: 'black', height: '100vh', width: '100vw', zIndex: '1', position: 'absolute', top: '0', left: '0'}}></div>
             <div>
               <div>
