@@ -47,7 +47,7 @@ class DashboardView extends React.Component {
         >
           {src => 
           <div className="dashboard" id="dashboard">
-            <img src={src} style={{width: '100vw', height: '100vh', objectFit: 'cover', margin: '0', padding: '0', backgroundRepeat: 'no-repeat', backgroundPosition: '50% 50%', backgroundColor: this.props.photoDetails.photoVisible ? 'black' : this.props.viewDetails.backgroundColour, zIndex: '0', position: 'relative', border: '0', overflow: 'hidden', display: this.props.photoDetails.photoVisible ? 'block' : 'none'}} />
+            <img alt="background" src={src} style={{width: '100vw', height: '100vh', objectFit: 'cover', margin: '0', padding: '0', backgroundRepeat: 'no-repeat', backgroundPosition: '50% 50%', backgroundColor: this.props.photoDetails.photoVisible ? 'black' : this.props.viewDetails.backgroundColour, zIndex: '0', position: 'relative', border: '0', overflow: 'hidden', display: this.props.photoDetails.photoVisible ? 'block' : 'none'}} />
             <div className='fade-out' style={{backgroundColor: 'black', height: '100vh', width: '100vw', zIndex: '1', position: 'absolute', top: '0', left: '0'}}></div>
             <div>
               <div>
@@ -91,7 +91,7 @@ class DashboardView extends React.Component {
                 }
               </div>
             </div>
-            <div style={{position: 'absolute', bottom: '0px', zIndex: '1', position: 'absolute'}}>
+            <div style={{position: 'absolute', bottom: '0px', zIndex: '1'}}>
               <MuiThemeProvider theme={theme}>
                 <Switch
                   checked={this.props.photoDetails.photoVisible}
