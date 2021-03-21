@@ -32,8 +32,8 @@ class SettingsBar extends React.Component {
                         <LinkTileSection />
                         <p style={{marginBottom: '25px'}}><a href="https://paypal.me/jordengerovac?locale.x=en_US" style={{textDecoration: 'none', color: '#4495F6'}}>Support the project</a></p>
                         </div>
-                    <div className="clickAway" style={{width: '80vw', height: '100%', cursor: 'pointer'}} onClick={this.toggleSettings}></div>
-                </div> : <i id="settingsIcon" style={{color: 'white', fontSize: '22px', margin: '7px', cursor: 'pointer', zIndex: '100', position: 'absolute'}} className="fas fa-cog" onClick={this.toggleSettings}></i>}
+                    <div className="clickAway" style={{width: '100vw', height: '100%', cursor: 'pointer'}} onClick={this.toggleSettings}></div>
+                </div> : <i id="settingsIcon" style={{color: 'white', fontSize: '22px', margin: '7px', cursor: 'pointer', zIndex: '200', position: 'absolute'}} className="fas fa-cog" onClick={this.toggleSettings}></i>}
             </div>
         )
     }
