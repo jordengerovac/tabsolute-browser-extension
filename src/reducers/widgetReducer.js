@@ -194,5 +194,4 @@ const immutableSwap = (widgets, firstIndex, secondIndex) => {
   const result = [...widgets];
   [result[firstIndex], result[secondIndex]] = [result[secondIndex], result[firstIndex]];
   return result;
-
 }

@@ -1,7 +1,7 @@
 import '../../App.css';
 import React from 'react';
 import { connect } from 'react-redux';
-import { addLinkTile, deleteLinkTile, updateLinkTile, toggleLinksOnDashboard } from '../../actions/linkTileActions';
+import { addLinkTile, deleteLinkTile, updateLinkTile, toggleLinksOnDashboard, moveLinkTile } from '../../actions/linkTileActions';
 
 class LinkCustomization extends React.Component {
     render() {
@@ -122,8 +122,10 @@ class LinkCustomization extends React.Component {
                                         </select>
                                     </div>
                                 </div>
-                                <div style={{marginRight: '30px'}}>
-                                    <i style={{color: 'lightgrey', cursor: 'pointer', margin: '0px 0px 0px 25px'}} class="fas fa-trash-alt" onClick={this.props.deleteLinkTile} id={tile.id}></i>
+                                <div>
+                                    <i onClick={this.props.moveLinkTile} id={tile.id} style={{color: 'lightgrey', cursor: 'pointer', margin: '0px 5px 0px 5px'}} className="fas fa-arrow-up"></i>
+                                    <i onClick={this.props.moveLinkTile} id={tile.id} style={{color: 'lightgrey', cursor: 'pointer', margin: '0px 5px 0px 5px'}} className="fas fa-arrow-down"></i>
+                                    <i style={{color: 'lightgrey', cursor: 'pointer', margin: '0px 5px 0px 5px'}} class="fas fa-trash-alt" onClick={this.props.deleteLinkTile} id={tile.id}></i>
                                 </div>
                             </div>
                         )
@@ -144,4 +146,4 @@ function mapStateToProps(state, ownProps) {
     }
 }
 
-export default connect(mapStateToProps, { addLinkTile, deleteLinkTile, updateLinkTile, toggleLinksOnDashboard })(LinkCustomization);
+export default connect(mapStateToProps, { addLinkTile, deleteLinkTile, updateLinkTile, toggleLinksOnDashboard, moveLinkTile })(LinkCustomization);

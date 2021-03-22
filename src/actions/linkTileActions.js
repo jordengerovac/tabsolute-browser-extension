@@ -1,4 +1,4 @@
-import { ADD_LINK_TILE, DELETE_LINK_TILE, UPDATE_LINK_TILE, TOGGLE_LINKS_ON_DASHBOARD } from './types';
+import { ADD_LINK_TILE, DELETE_LINK_TILE, UPDATE_LINK_TILE, TOGGLE_LINKS_ON_DASHBOARD, MOVE_LINK_TILE } from './types';
 
 export const addLinkTile = (event) => dispatch => {
     dispatch({
@@ -26,4 +26,11 @@ export const toggleLinksOnDashboard = (event) => dispatch => {
         type: TOGGLE_LINKS_ON_DASHBOARD,
         payload: event
     });
+}
+
+export const moveLinkTile = (event) => dispatch => {
+    dispatch({
+        type: MOVE_LINK_TILE,
+        payload: event
+    })
 }
