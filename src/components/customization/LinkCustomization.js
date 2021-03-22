@@ -7,6 +7,18 @@ class LinkCustomization extends React.Component {
     render() {
         const iconMap = [
             {
+                key: "Address Book",
+                value: "fas fa-address-book"
+            },
+            {
+                key: "Amazon",
+                value: "fab fa-amazon"
+            },
+            {
+                key: "Atom",
+                value: "fas fa-atom"
+            },
+            {
                 key: "Apple",
                 value: "fab fa-apple"
             },
@@ -15,8 +27,28 @@ class LinkCustomization extends React.Component {
                 value: "fas fa-bacon"
             },
             {
+                key: "Baseball",
+                value: "fas fa-baseball-ball"
+            },
+            {
+                key: "Basketball",
+                value: "fas fa-basketball-ball"
+            },
+            {
+                key: "Beer",
+                value: "fas fa-beer"
+            },
+            {
+                key: "Bell",
+                value: "fas fa-bell"
+            },
+            {
                 key: "Book",
                 value: "fas fa-book"
+            },
+            {
+                key: "Book Open",
+                value: "fas fa-book-open"
             },
             {
                 key: "Bookmark",
@@ -35,36 +67,96 @@ class LinkCustomization extends React.Component {
                 value: "fas fa-cloud"
             },
             {
+                key: "Cocktail",
+                value: "fas fa-cocktail"
+            },
+            {
+                key: "Code",
+                value: "fas fa-code"
+            },
+            {
                 key: "Compass",
                 value: "fas fa-compass"
+            },
+            {
+                key: "Dumbbell",
+                value: "fas fa-dumbbell"
             },
             {
                 key: "Envelope",
                 value: "fas fa-envelope"
             },
             {
+                key: "Envelope Open",
+                value: "fas fa-envelope-open"
+            },
+            {
                 key: "Facebook",
                 value: "fab fa-facebook"
+            },
+            {
+                key: "File",
+                value: "fas fa-file-alt"
             },
             {
                 key: "GitHub",
                 value: "fab fa-github"
             },
             {
+                key: "Globe",
+                value: "fas fa-globe"
+            },
+            {
                 key: "Google",
                 value: "fab fa-google"
+            },
+            {
+                key: "Graduation Cap",
+                value: "fas fa-graduation-cap"
+            },
+            {
+                key: "Hockey Puck",
+                value: "fas fa-hockey-puck"
+            },
+            {
+                key: "Laptop",
+                value: "fas fa-laptop"
+            },
+            {
+                key: "Leaf",
+                value: "fas fa-leaf"
             },
             {
                 key: "Link",
                 value: "fas fa-link"
             },
             {
+                key: "Medical Notes",
+                value: "fas fa-notes-medical"
+            },
+            {
                 key: "Music",
                 value: "fas fa-music"
             },
             {
+                key: "Passport",
+                value: "fas fa-passport"
+            },
+            {
+                key: "Pencil & Ruler",
+                value: "fas fa-pencil-ruler"
+            },
+            {
                 key: "Plane",
                 value: "fas fa-plane"
+            },
+            {
+                key: "Running",
+                value: "fas fa-running"
+            },
+            {
+                key: "School",
+                value: "fas fa-school"
             },
             {
                 key: "Shopping Cart",
@@ -81,6 +173,10 @@ class LinkCustomization extends React.Component {
             {
                 key: "Twitter",
                 value: "fab fa-twitter"
+            },
+            {
+                key: "Video Camera",
+                value: "fas fa-video"
             },
             {
                 key: "Wifi",
