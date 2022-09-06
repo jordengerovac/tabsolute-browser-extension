@@ -37,6 +37,32 @@ class Weather extends React.Component {
         });
     }
 
+    getDailyWeather() {
+        const WEATHER_API_KEY = `${process.env.REACT_APP_WEATHER_API_KEY}`
+        fetch('https://api.openweathermap.org/data/2.5/onecall?q=' + this.props.widget.value.split(":@:")[0] + '&cnt=1&units=metric&appid=' + WEATHER_API_KEY)
+        .then(res => res.json())
+        .then(
+        (result) => {
+            console.log(result)
+            var city = this.props.widget.value.split(":@:")[0];
+            var temp_min = result.list[0].temp.min;
+            var temp_max = result.list[0].temp.max;
+            var clouds = result.list[0].weather[0].description;
+            var day = new Date().getHours();
+            var value = city + ":@:" + temp_min + ":@:" + temp_max + ":@:" + clouds + ":@:" + day;
+            
+            var payload = {
+                type: UPDATE_WEATHER_WIDGET,
+                payload: value,
+                id: this.props.widget.id
+            }
+            store.dispatch(payload);
+        })
+        .catch(function(error) {
+            console.log(error);
+        });
+    }
+
     render() {
         var clouds = String(this.props.widget.value.split(":@:")[3]);
         var icon = "";
